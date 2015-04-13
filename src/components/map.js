@@ -45,7 +45,11 @@ var Map = React.createClass({
     },
     renderMap: function (mapOptions) {
         var google = this.props.service,
-            map = new google.maps.Map(document.getElementById('map'), mapOptions);
+            mapCanvas = document.getElementById('map'),
+            map,
+            vH = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+        mapCanvas.style.height = vH + 'px';
+        map = new google.maps.Map(mapCanvas, mapOptions);
         directionsDisplay.setMap(map);
 
     },
