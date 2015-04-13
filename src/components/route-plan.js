@@ -1,5 +1,6 @@
 var React = require('react'),
     WayPoint = require('./way-point'),
+    RouteInfo = require('./route-info'),
     WayPointModel = require('../models/way-point'),
     vent = require('../util/vent');
 
@@ -8,6 +9,27 @@ var RoutePlan = React.createClass({
         return ({
             editingAt: -1
         });
+    },
+    componentDidMount: function () {
+        vent.on('map:route:distance:update', this.updateRouteDistance, this);
+    },
+    updateRouteDistance: function (response) {
+        var mapRoutes = response.routes,
+            route = this.props.route,
+            routeLegs,
+            i;
+        if (mapRoutes && mapRoutes.length > 0) {
+            routeLegs = mapRoutes[0].legs;
+            for (i = 0; i < routeLegs.length; i++) {
+                route.at(i + 1).set({
+                    distance: routeLegs[i].distance,
+                    duration: routeLegs[i].duration
+                });
+            }
+            this.setState({
+                routeUpdated: new Date().getTime()
+            });
+        }
     },
     onAction: function (index, action, options) {
         switch (action) {
@@ -66,15 +88,20 @@ var RoutePlan = React.createClass({
         var route = this.props.route,
             self = this,
             wayPoints = route.map(function (wayPoint, index) {
-                var key = 'wayPoint' + index;
+                var key = 'wayPoint' + index,
+                    routeInfo = index === 0 ? null : <RouteInfo wayPoint={wayPoint}/>;
+
                 return (
-                    <WayPoint
-                    ref={key}
-                    key={key}
-                    wayPoint={wayPoint}
-                    editing={self.state.editingAt === index}
-                    onAction={self.onAction.bind(self, index)}
-                    />
+                    <div>
+                    {routeInfo}
+                        <WayPoint
+                        ref={key}
+                        key={key}
+                        wayPoint={wayPoint}
+                        editing={self.state.editingAt === index}
+                        onAction={self.onAction.bind(self, index)}
+                        />
+                    </div>
                     );
             });
         return (

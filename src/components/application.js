@@ -8,8 +8,9 @@ var Application = React.createClass({
     getInitialState: function () {
         return {
             route: new Route([
-                {name: 'Chennai'},
-                {name: 'Bangalore'}
+                {name: 'San Francisco, CA'},
+                {name: 'Fremont, CA'},
+                {name: 'San Jose, CA'}
             ])
         };
     },

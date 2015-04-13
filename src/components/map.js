@@ -18,6 +18,10 @@ var Map = React.createClass({
         });
 
         vent.on('map:route:update', this.updateRoute, this);
+        this.updateRoute(this.props.route);
+    },
+    updateDistanceData: function (response) {
+        vent.trigger('map:route:distance:update', response);
     },
     updateRoute: function (route) {
         var google = this.props.service,
@@ -28,7 +32,8 @@ var Map = React.createClass({
             },
             wayPoints = [],
             i,
-            noOfWayPoints = route.length - 2;
+            noOfWayPoints = route.length - 2,
+            self = this;
 
         if (noOfWayPoints > 0) {
             for (i = 1; i <= noOfWayPoints; i++) {
@@ -40,6 +45,7 @@ var Map = React.createClass({
         }
 
         directionsService.route(request, function (response, status) {
+            self.updateDistanceData(response);
             directionsDisplay.setDirections(response);
         });
     },
