@@ -17,18 +17,27 @@ var Map = React.createClass({
             center: DEFAULT_LOCATION
         });
 
-        vent.on('map:directions:update', this.updateDirections, this);
+        vent.on('map:route:update', this.updateRoute, this);
     },
-    updateDirections: function (route) {
+    updateRoute: function (route) {
         var google = this.props.service,
-            start = 'Chennai, IN',
-            end = 'Bangalore, IN',
             request = {
-                origin: start,
-                destination: end,
-                waypoints: [{location:'Kolar', stopover:true}],
+                origin: route.at(0).get('name'),
+                destination: route.at(route.length - 1).get('name'),
                 travelMode: google.maps.TravelMode.DRIVING
-            };
+            },
+            wayPoints = [],
+            i,
+            noOfWayPoints = route.length - 2;
+
+        if (noOfWayPoints > 0) {
+            for (i = 1; i <= noOfWayPoints; i++) {
+                wayPoints.push({
+                    location: route.at(i).get('name')
+                });
+            }
+            request.waypoints = wayPoints;
+        }
 
         directionsService.route(request, function (response, status) {
             directionsDisplay.setDirections(response);

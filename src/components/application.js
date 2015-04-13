@@ -24,6 +24,7 @@ var Application = React.createClass({
                 <Header/>
                 <div className='route-map-container'>
                     <RoutePlan route={route}/>
+                    <Map service={mapService} route={route} />
                 </div>
             </div>
             );

@@ -58,7 +58,7 @@ var RoutePlan = React.createClass({
         }
     },
     updateRoutes: function () {
-        vent.trigger('map:route:update');
+        vent.trigger('map:route:update', this.props.route);
     },
     render: function () {
         var route = this.props.route,
