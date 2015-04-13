@@ -19,19 +19,18 @@ var Map = React.createClass({
 
         vent.on('map:directions:update', this.updateDirections, this);
     },
-    updateDirections: function () {
-        console.log('updating directions');
+    updateDirections: function (route) {
         var google = this.props.service,
             start = 'Chennai, IN',
             end = 'Bangalore, IN',
             request = {
                 origin: start,
                 destination: end,
+                waypoints: [{location:'Kolar', stopover:true}],
                 travelMode: google.maps.TravelMode.DRIVING
             };
 
         directionsService.route(request, function (response, status) {
-            console.log(status);
             directionsDisplay.setDirections(response);
         });
     },
