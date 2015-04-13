@@ -10,7 +10,8 @@
         "react-backbone": "*",
         "react-mixin-manager": "*",
         "google-maps": "*",
-        "domready": "*"
+        "domready": "*",
+        "vent": "*"
     },
     "devDependencies": {
         "grunt": "*",

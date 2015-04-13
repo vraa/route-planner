@@ -5,7 +5,6 @@ var React = require('react'),
 
 domReady(function () {
     GoogleMaps.load(function (google) {
-        console.log('loaded google maps', google);
-        React.render(<Application google={google}/>, document.getElementById('app'));
+        React.render(<Application mapService={google}/>, document.getElementById('app'));
     });
 });

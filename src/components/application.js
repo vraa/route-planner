@@ -1,24 +1,22 @@
-var React = require('react');
+var React = require('react'),
+    Header = require('./header'),
+    RoutePlan = require('./route-plan'),
+    Map = require('./map');
 
 
 var Application = React.createClass({
     componentDidMount: function () {
-        var google = this.props.google,
-            directionsDisplay = new google.maps.DirectionsRenderer(),
-            chicago = new google.maps.LatLng(41.850033, -87.6500523),
-            mapOptions = {
-                zoom: 7,
-                center: chicago
-            },
-            map = new google.maps.Map(document.getElementById('map'), mapOptions);
-        directionsDisplay.setMap(map);
-
-
     },
     render: function () {
-        var google = this.props.google;
+        var mapService = this.props.mapService;
         return (
-            <h1>Hello World</h1>
+            <div>
+                <Header/>
+                <div className='route-map-container'>
+                    <RoutePlan/>
+                    <Map service={mapService} />
+                </div>
+            </div>
             );
     }
 });
