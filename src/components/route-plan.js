@@ -23,6 +23,8 @@ var RoutePlan = React.createClass({
             case 'add':
                 this.addWayPoint(index);
                 break;
+            case 'cancel':
+                this.cancel(index);
         }
     },
     editWayPoint: function (index) {

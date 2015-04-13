@@ -1,5 +1,4 @@
 var React = require('react'),
-    Header = require('./header'),
     RoutePlan = require('./route-plan'),
     Map = require('./map'),
     Route = require('../models/route');
@@ -21,11 +20,7 @@ var Application = React.createClass({
             route = this.state.route;
         return (
             <div>
-                <Header/>
-                <div className='route-map-container'>
-                    <RoutePlan route={route}/>
-                    <Map service={mapService} route={route} />
-                </div>
+                <RoutePlan route={route}/>
             </div>
             );
     }

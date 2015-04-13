@@ -52,33 +52,152 @@ table {
     border-spacing: 0;
 }
 
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?ujw5cl');
+    src: url('../fonts/icomoon.eot?#iefixujw5cl') format('embedded-opentype'),
+    url('../fonts/icomoon.woff?ujw5cl') format('woff'),
+    url('../fonts/icomoon.ttf?ujw5cl') format('truetype'),
+    url('../fonts/icomoon.svg?ujw5cl#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-done:before {
+    content: "\e600";
+}
+
+.icon-favorite:before {
+    content: "\e601";
+}
+
+.icon-location-on:before {
+    content: "\e602";
+}
+
+.icon-add:before {
+    content: "\e603";
+}
+
+.icon-clear:before {
+    content: "\e604";
+}
+
+.icon-create:before {
+    content: "\e605";
+}
+
+.icon-undo:before {
+    content: "\e606";
+}
+
+.icon-keyboard-arrow-down:before {
+    content: "\e607";
+}
+
+.icon-adjust:before {
+    content: "\e608";
+}
+
+html {
+    height: 100%;
+}
+
 body {
     font-family: "open sans", sans-serif;
     font-size: 100%;
+    min-height: 100%;
+    background-color: #eeeeee;
+    color: #333333;
 }
 
-header {
-    min-height: 75px;
-}
-
-.route-map-container {
-    position: relative;
+.map {
     width: 100%;
-    height: 500px;
+    height: 600px;
+    top: 0;
+    left: 0;
+    z-index: 10;
 }
 
 .route-plan {
     position: absolute;
     width: 300px;
     height: 500px;
-    left: 0;
-    top: 0;
+    right: 50px;
+    top: 50px;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 5px #666 border : 1 px solid #cccccc;
+    z-index: 20;
 }
 
-.map {
-    width: 100%;
-    height: 500px;
-    margin-left: 310px;
+.way-point {
+    position: relative;
+    padding: 3px 0;
+    margin-bottom: 15px;
+    cursor: text;
+}
+
+.way-point .viewing {
+    border-bottom: 1px solid #dddddd;
+    padding: 3px 0;
+}
+
+.way-point .icon-create {
+    color: #dddddd;
+    margin-right: 5px;
+}
+
+.way-point .editing {
+    border-bottom: 1px solid #0000ff;
+    padding: 3px 0;
+}
+
+.editing input[type='text'] {
+    border: none;
+    font-size: 1rem;
+    outline: none
+}
+
+.actions {
+    position: absolute;
     top: 0;
     right: 0;
+}
+
+.viewing .actions {
+    display: none;
+}
+
+.viewing:hover .actions {
+    display: inline-block;
+}
+
+.actions a {
+    text-decoration: none;
+    color: #666666;
+    font-size: 1.2rem;
+}
+
+.actions a:hover{
+    color: #000000;
+}
+
+ul.actions li {
+    display: inline-block;
+    margin-left: 5px;
 }
