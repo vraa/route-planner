@@ -1,7 +1,7 @@
 {
-    "name": "octocage",
+    "name": "routeplanner",
     "version": "0.0.1",
-    "description": "free the octopus from the cage.",
+    "description": "Google Maps Route Planner",
     "main": "index.js",
     "dependencies": {
         "backbone": "*",

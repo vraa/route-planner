@@ -1,4 +1,5 @@
 var React = require('react'),
+    Dashboard = require('./dashboard'),
     WayPoint = require('./way-point'),
     RouteInfo = require('./route-info'),
     WayPointModel = require('../models/way-point'),
@@ -92,11 +93,10 @@ var RoutePlan = React.createClass({
                     routeInfo = index === 0 ? null : <RouteInfo wayPoint={wayPoint}/>;
 
                 return (
-                    <div>
+                    <div key={key}>
                     {routeInfo}
                         <WayPoint
-                        ref={key}
-                        key={key}
+                        mapService={self.props.mapService}
                         wayPoint={wayPoint}
                         editing={self.state.editingAt === index}
                         onAction={self.onAction.bind(self, index)}
@@ -106,7 +106,8 @@ var RoutePlan = React.createClass({
             });
         return (
             <div className='route-plan'>
-                <div ref='wayPoints'>
+                <Dashboard route={route}/>
+                <div ref='wayPoints' className='way-points'>
                     {wayPoints}
                 </div>
                 <button onClick={this.updateRoutes}>Update</button>

@@ -11,7 +11,6 @@ var RouteInfo = React.createClass({
         return (
             <div className='route-info'>
                 <p>
-                    <i className='icon-arrow-down'/>
                     <span className='distance'>{distanceText}</span>
                     <span className='duration'>{durationText}</span>
                 </p>

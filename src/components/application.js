@@ -21,8 +21,8 @@ var Application = React.createClass({
             route = this.state.route;
         return (
             <div>
-                <Map service={mapService} route={route}/>
-                <RoutePlan route={route}/>
+                <Map mapService={mapService} route={route}/>
+                <RoutePlan mapService={mapService} route={route} />
             </div>
             );
     }
