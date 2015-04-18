@@ -13,6 +13,10 @@ var RoutePlan = React.createClass({
     },
     componentDidMount: function () {
         vent.on('map:route:distance:update', this.updateRouteDistance, this);
+        this.props.route.on('remove change', this.updateRoutes);
+    },
+    componentWillUnmount: function () {
+        vent.off('map:route:distance:update');
     },
     updateRouteDistance: function (response) {
         var mapRoutes = response.routes,
@@ -110,7 +114,6 @@ var RoutePlan = React.createClass({
                 <div ref='wayPoints' className='way-points'>
                     {wayPoints}
                 </div>
-                <button onClick={this.updateRoutes}>Update</button>
             </div>
             );
     }
