@@ -2,7 +2,16 @@ var React = require('react');
 
 var EditWayPoint = React.createClass({
     componentDidMount: function () {
-        this.refs['wayPoint'].getDOMNode().focus();
+        var node = this.refs['wayPoint'].getDOMNode(),
+            google = this.props.mapService;
+        this.autoComplete = new google.maps.places.Autocomplete(node);
+        google.maps.event.addListener(this.autoComplete, 'place_changed', this.onPlaceChange);
+    },
+    onPlaceChange: function () {
+        var place = this.autoComplete.getPlace();
+        this.props.onAction('save', {
+            value: place.formatted_address
+        });
     },
     onDone: function (e) {
         e.preventDefault();
@@ -56,8 +65,7 @@ var ViewWayPoint = React.createClass({
         var name = this.props.name;
         return (
             <div className='viewing'>
-                <p onClick={this.edit}>
-                    <i className='icon-create'></i>
+                <p className='way-point-name' onClick={this.edit}>
                 {name}
                 </p>
                 <ul className='actions'>
@@ -85,6 +93,7 @@ var WayPoint = React.createClass({
             element = null;
         if (editing) {
             element = (<EditWayPoint
+            mapService={this.props.mapService}
             name={name}
             onAction={this.props.onAction} />);
         } else {
@@ -95,6 +104,7 @@ var WayPoint = React.createClass({
         }
         return (
             <div className='way-point'>
+                <i className='marker icon-adjust'/>
             {element}
             </div>
             );

@@ -118,7 +118,7 @@ html {
 }
 
 body {
-    font-family: "open sans", sans-serif;
+    font-family: "Roboto", "open sans", sans-serif;
     font-size: 100%;
     min-height: 100%;
     background-color: #eeeeee;
@@ -138,10 +138,17 @@ body {
     height: 500px;
     right: 50px;
     top: 50px;
-    padding: 10px;
+    padding: 20px;
     background-color: #ffffff;
     box-shadow: 0px 0px 5px #666 border : 1 px solid #cccccc;
     z-index: 20;
+    overflow: scroll;
+}
+
+.way-points {
+    border-left: 1px solid #dddddd;
+    padding-left: 20px;
+    margin-bottom: 10px;
 }
 
 .way-point {
@@ -150,14 +157,20 @@ body {
     cursor: text;
 }
 
+.way-point:last-child {
+    padding-bottom: 0;
+}
+
 .way-point .viewing {
     border-bottom: 1px solid #dddddd;
     padding: 3px 0;
 }
 
-.way-point .icon-create {
-    color: #dddddd;
-    margin-right: 5px;
+.way-point .marker {
+    position: absolute;
+    left: -28px;
+    top: 5px;
+    color: #000000;
 }
 
 .way-point .editing {
@@ -168,7 +181,9 @@ body {
 .editing input[type='text'] {
     border: none;
     font-size: 1rem;
-    outline: none
+    outline: none;
+    padding-right: 50px;
+    width: 100%;
 }
 
 .actions {
@@ -185,13 +200,21 @@ body {
     display: inline-block;
 }
 
+.viewing .way-point-name {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: 300;
+    padding-right: 50px;
+}
+
 .actions a {
     text-decoration: none;
     color: #666666;
     font-size: 1.2rem;
 }
 
-.actions a:hover{
+.actions a:hover {
     color: #000000;
 }
 
@@ -200,18 +223,54 @@ ul.actions li {
     margin-left: 5px;
 }
 
-.route-info{
+.route-info {
     font-size: .8rem;
-    color: #cccccc;
-    padding: 7px 20px;
+    color: #333333;
+    padding: 10px;
+    font-weight: 100;
 }
 
-.route-info i{
+.route-info i {
     color: #999999;
     font-weight: bold;
     font-size: 1rem;
 }
 
-.route-info .distance{
+.route-info .distance {
     margin-right: 10px;
+}
+
+.dashboard {
+    overflow: hidden;
+    width: 100%;
+    background-color: #eeeeee;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dashboard .distance {
+    float: left;
+    width: 50%;
+}
+
+.dashboard .value {
+    font-weight: 300;
+    font-size: 2rem;
+}
+
+.dashboard .unit {
+    font-weight: 300;
+    font-size: .6rem;
+    text-transform: uppercase;
+}
+
+.dashboard .duration {
+    float: right;
+    width: 50%;
+}
+
+.duration li {
+    display: inline-block;
+    margin-right: 5px;
 }
