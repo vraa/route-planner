@@ -1,8 +1,11 @@
 var Backbone = require('backbone'),
-    WayPoint = require('./way-point');
+    WayPoints = require('./way-points');
 
-var Route = Backbone.Collection.extend({
-    model: WayPoint
+var Route = Backbone.Model.extend({
+    defaults: {
+        name: 'Route',
+        wayPoints: new WayPoints()
+    }
 });
 
 module.exports = Route;

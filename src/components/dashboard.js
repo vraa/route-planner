@@ -6,20 +6,19 @@ var MINUTE = 60,
 
 var DashBoard = React.createClass({
     render: function () {
-        var route = this.props.route,
+        var wayPoints = this.props.route.get('wayPoints'),
             time = {
                 days: 0,
                 hours: 0,
                 minutes: 0
             },
             duration = 0,
-            unitOfDuration = 'minutes',
             distance = 0,
             dayElm,
             hourElm,
             minuteElm;
 
-        route.map(function (wayPoint) {
+        wayPoints.map(function (wayPoint) {
             var dist = wayPoint.get('distance'),
                 dura = wayPoint.get('duration');
             if (dist) {

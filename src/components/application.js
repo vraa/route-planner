@@ -1,17 +1,21 @@
 var React = require('react'),
     RoutePlan = require('./route-plan'),
     Map = require('./map'),
-    Route = require('../models/route');
+    Route = require('../models/route'),
+    WayPoints = require('../models/way-points');
 
 
 var Application = React.createClass({
     getInitialState: function () {
         return {
-            route: new Route([
-                {name: 'San Francisco, CA'},
-                {name: 'Fremont, CA'},
-                {name: 'San Jose, CA'}
-            ])
+            route: new Route({
+                name: 'Weekend drive',
+                wayPoints: new WayPoints([
+                    {name: 'San Francisco, CA'},
+                    {name: 'Fremont, CA'},
+                    {name: 'San Jose, CA'}
+                ])
+            })
         };
     },
     componentDidMount: function () {

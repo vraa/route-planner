@@ -17,31 +17,31 @@ var Map = React.createClass({
             center: DEFAULT_LOCATION
         });
 
-        vent.on('map:route:update', this.updateRoute, this);
-        this.updateRoute(this.props.route);
+        vent.on('map:route:way-points:update', this.updateWayPoints, this);
+        this.updateWayPoints(this.props.route.get('wayPoints'));
     },
     updateDistanceData: function (response) {
         vent.trigger('map:route:distance:update', response);
     },
-    updateRoute: function (route) {
+    updateWayPoints: function (wayPoints) {
         var google = this.props.mapService,
             request = {
-                origin: route.at(0).get('name'),
-                destination: route.at(route.length - 1).get('name'),
+                origin: wayPoints.at(0).get('name'),
+                destination: wayPoints.at(wayPoints.length - 1).get('name'),
                 travelMode: google.maps.TravelMode.DRIVING
             },
-            wayPoints = [],
+            wayPointsList = [],
             i,
-            noOfWayPoints = route.length - 2,
+            noOfWayPoints = wayPoints.length - 2,
             self = this;
 
         if (noOfWayPoints > 0) {
             for (i = 1; i <= noOfWayPoints; i++) {
-                wayPoints.push({
-                    location: route.at(i).get('name')
+                wayPointsList.push({
+                    location: wayPoints.at(i).get('name')
                 });
             }
-            request.waypoints = wayPoints;
+            request.waypoints = wayPointsList;
         }
 
         directionsService.route(request, function (response, status) {
