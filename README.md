@@ -1,4 +1,4 @@
-# Route Planner using Google Maps
+# Route Planner using Google Maps, built with React JS
 
 **[Route Planner](http://veerasundar.com/route-planner)** is a simple app that helps you to plan your travel routes.
 
