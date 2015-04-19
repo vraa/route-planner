@@ -293,3 +293,29 @@ ul.actions li {
     top: 0;
 }
 
+.route-tabs{
+    position: absolute;
+    width: 50px;
+    right: 345px;
+    top: 50px;
+    z-index: 20;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.route-tabs li{
+    background-color: #ffffff;
+    margin: 5px 0;
+    padding: 10px 0;
+    border-radius: 5px 0 0 5px;
+}
+
+.route-tabs li:hover, .route-tabs li.active{
+    background-color: #eeeeee;
+    cursor: pointer;
+}
+
+.route-tabs a{
+    text-decoration: none;
+    color: #666666;
+}

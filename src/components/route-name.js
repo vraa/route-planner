@@ -1,6 +1,9 @@
 var React = require('react');
 
-var RouteControl = React.createClass({
+var RouteName = React.createClass({
+    remove: function () {
+
+    },
     render: function () {
         return (
             <div className='route-control'>
@@ -13,4 +16,4 @@ var RouteControl = React.createClass({
     }
 });
 
-module.exports = RouteControl;
+module.exports = RouteName;

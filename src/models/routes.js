@@ -1,3 +1,8 @@
-/**
- * Created by vkalyana on 4/18/15.
- */
+var Backbone = require('backbone'),
+    Route = require('./route');
+
+var Routes = Backbone.Collection.extend({
+    model : Route
+});
+
+module.exports = Routes;

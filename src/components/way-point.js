@@ -6,6 +6,7 @@ var EditWayPoint = React.createClass({
             google = this.props.mapService;
         this.autoComplete = new google.maps.places.Autocomplete(node);
         google.maps.event.addListener(this.autoComplete, 'place_changed', this.onPlaceChange);
+        node.focus();
     },
     onPlaceChange: function () {
         var place = this.autoComplete.getPlace();
@@ -15,23 +16,28 @@ var EditWayPoint = React.createClass({
     },
     onDone: function (e) {
         e.preventDefault();
-        this.props.onAction('save', {
-            value: this.refs['wayPoint'].getDOMNode().value
-        });
+        this.save(this.refs['wayPoint'].getDOMNode().value);
     },
     onCancel: function (e) {
         e.preventDefault();
         this.props.onAction('cancel');
     },
-    save: function (e) {
-        this.props.onAction('save', {
-            value: e.target.value
-        });
+    onBlur: function (e) {
+        this.save(e.target.value);
+    },
+    save: function (newValue) {
+        if (!!newValue) {
+            this.props.onAction('save', {
+                value: newValue
+            });
+        } else {
+            this.props.onAction('cancel');
+        }
     },
     render: function () {
         return (
             <div className='editing'>
-                <input ref='wayPoint' type='text' name='wayPoint' defaultValue={this.props.name} onBlur={this.save} />
+                <input ref='wayPoint' type='text' name='wayPoint' defaultValue={this.props.name} onBlur={this.onBlur} />
                 <ul className='actions'>
                     <li>
                         <a href='#' onClick={this.onDone}>

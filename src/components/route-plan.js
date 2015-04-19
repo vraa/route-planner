@@ -16,6 +16,12 @@ var RoutePlan = React.createClass({
         vent.on('map:route:distance:update', this.updateRouteDistance, this);
         this.props.route.get('wayPoints').on('remove change', this.updateWayPoints);
     },
+    componentWillReceiveProps: function (nextProps) {
+        if (this.props.route !== nextProps.route) {
+            this.props.route.get('wayPoints').off('remove change');
+            nextProps.route.get('wayPoints').on('remove change', this.updateWayPoints);
+        }
+    },
     componentWillUnmount: function () {
         vent.off('map:route:distance:update');
     },
@@ -88,7 +94,7 @@ var RoutePlan = React.createClass({
         }
     },
     updateWayPoints: function () {
-        vent.trigger('map:route:way-points:update', this.props.route.get('wayPoints'));
+        vent.trigger('map:route:way-points:update');
     },
     render: function () {
         var route = this.props.route,
