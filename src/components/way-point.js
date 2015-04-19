@@ -31,7 +31,8 @@ var EditWayPoint = React.createClass({
                 value: newValue
             });
         } else {
-            this.props.onAction('cancel');
+            alert('Location is required.');
+            this.refs['wayPoint'].getDOMNode().focus();
         }
     },
     render: function () {
