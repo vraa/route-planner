@@ -43,7 +43,7 @@ var RoutePlan = React.createClass({
             });
         }
     },
-    onAction: function (index, action, options) {
+    onWayPointAction: function (index, action, options) {
         switch (action) {
             case 'edit':
                 this.editWayPoint(index);
@@ -111,14 +111,14 @@ var RoutePlan = React.createClass({
                         mapService={self.props.mapService}
                         wayPoint={wayPoint}
                         editing={self.state.editingAt === index}
-                        onAction={self.onAction.bind(self, index)}
+                        onAction={self.onWayPointAction.bind(self, index)}
                         />
                     </div>
                     );
             });
         return (
             <div className='route-plan'>
-                <RouteName route={route}/>
+                <RouteName route={route} onAction={this.props.routeAction}/>
                 <Dashboard route={route}/>
                 <div ref='wayPoints' className='way-points'>
                     {wayPointsElm}

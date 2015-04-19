@@ -16,7 +16,7 @@ route = new Route({
 
 routes.add(route);
 routes.add(new Route({
-    name: 'Weekend drive',
+    name: 'Sunday outing',
     wayPoints: new WayPoints([
         {name: 'Start'},
         {name: 'End'}

@@ -17,6 +17,17 @@ var Application = React.createClass({
         };
     },
     componentDidMount: function () {
+        this.state.routes.on('remove change', this.updateRouteWayPoints);
+    },
+    onAction: function (action, value) {
+        switch (action) {
+            case 'change-name':
+                this.onRouteNameChange(value);
+                break;
+            case 'remove':
+                this.onRouteRemove();
+                break;
+        }
     },
     onRouteAdd: function () {
         var routes = this.state.routes;
@@ -32,6 +43,27 @@ var Application = React.createClass({
             vent.trigger('map:route:way-points:update');
         });
     },
+    onRouteNameChange: function (value) {
+        var route = this.state.routes.at(this.state.activeRoute);
+        route.set('name', value);
+        this.setState({
+            routeUpdated: new Date().getTime()
+        });
+    },
+    onRouteRemove: function () {
+        var routes = this.state.routes;
+        routes.remove(routes.at(this.state.activeRoute));
+        if (routes.length === 0) {
+            this.onRouteAdd();
+        } else {
+            this.setState({
+                activeRoute: this.state.activeRoute - 1
+            });
+        }
+    },
+    updateRouteWayPoints: function () {
+        vent.trigger('map:route:way-points:update');
+    },
     render: function () {
         var mapService = this.props.mapService,
             route = this.state.routes.at(this.state.activeRoute);
@@ -45,7 +77,7 @@ var Application = React.createClass({
                     routes={this.state.routes}
                     active={this.state.activeRoute}
                     />
-                    <RoutePlan mapService={mapService} route={route} />
+                    <RoutePlan mapService={mapService} route={route} routeAction={this.onAction} />
                 </div>
             </div>
             );
