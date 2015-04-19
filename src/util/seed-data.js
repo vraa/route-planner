@@ -9,17 +9,21 @@ route = new Route({
     name: 'Weekend drive',
     wayPoints: new WayPoints([
         {name: 'San Francisco, CA'},
-        {name: 'Fremont, CA'},
-        {name: 'San Jose, CA'}
+        {name: 'Half moon bay, CA'},
+        {name: 'Santa Cruz, CA'},
+        {name: 'Monterey, CA'}
     ])
 });
 
 routes.add(route);
 routes.add(new Route({
-    name: 'Sunday outing',
+    name: 'Cross country trip',
     wayPoints: new WayPoints([
-        {name: 'Start'},
-        {name: 'End'}
+        {name: 'San Francisco, CA'},
+        {name: 'Los Angeles, CA'},
+        {name: 'Las Vegas, CA'},
+        {name: 'Austin, TX'},
+        {name: 'Miami, FL'}
     ])
 }));
 
