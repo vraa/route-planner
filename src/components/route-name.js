@@ -31,7 +31,8 @@ var ViewRouteName = React.createClass({
     edit: function () {
         this.props.onAction('edit');
     },
-    remove: function () {
+    remove: function (e) {
+        e.preventDefault();
         this.props.onAction('remove');
     },
     render: function () {

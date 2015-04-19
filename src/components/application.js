@@ -52,13 +52,19 @@ var Application = React.createClass({
     },
     onRouteRemove: function () {
         var routes = this.state.routes;
-        routes.remove(routes.at(this.state.activeRoute));
+        routes.remove(routes.at(this.state.activeRoute), {silent: true});
         if (routes.length === 0) {
             this.onRouteAdd();
         } else {
-            this.setState({
-                activeRoute: this.state.activeRoute - 1
-            });
+            if (this.state.activeRoute > 0) {
+                this.setState({
+                    activeRoute: this.state.activeRoute - 1
+                });
+            } else {
+                this.setState({
+                    activeRoute: 0
+                });
+            }
         }
     },
     updateRouteWayPoints: function () {
