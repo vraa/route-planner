@@ -18,7 +18,26 @@ var Map = React.createClass({
         });
 
         vent.on('map:route:way-points:update', this.updateWayPoints, this);
+        //this.adsense();
         this.updateWayPoints();
+    },
+    adsense: function () {
+        var adUnitDiv = document.createElement('div'),
+            google = this.props.mapService;
+        var adUnitOptions = {
+            format: google.maps.adsense.AdFormat.BANNER,
+            position: google.maps.ControlPosition.BOTTOM,
+            backgroundColor: '#ffffff',
+            borderColor: '#ffffff',
+            titleColor: '#f39c12',
+            textColor: '#000000',
+            urlColor: '#f39c12',
+            map: this.map,
+            visible: true,
+            channelNumber: '5399940666',
+            publisherId: 'pub-4601926589924919'
+        }
+        new google.maps.adsense.AdUnit(adUnitDiv, adUnitOptions);
     },
     updateDistanceData: function (response) {
         vent.trigger('map:route:distance:update', response);
@@ -46,7 +65,7 @@ var Map = React.createClass({
         }
 
         directionsService.route(request, function (response, status) {
-            if(status === 'OK'){
+            if (status === 'OK') {
                 self.updateDistanceData(response);
                 directionsDisplay.setDirections(response);
             }
@@ -55,11 +74,10 @@ var Map = React.createClass({
     renderMap: function (mapOptions) {
         var google = this.props.mapService,
             mapCanvas = document.getElementById('map'),
-            map,
             vH = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
         mapCanvas.style.height = vH + 'px';
-        map = new google.maps.Map(mapCanvas, mapOptions);
-        directionsDisplay.setMap(map);
+        this.map = new google.maps.Map(mapCanvas, mapOptions);
+        directionsDisplay.setMap(this.map);
 
     },
     render: function () {

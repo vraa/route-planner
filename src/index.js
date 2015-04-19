@@ -4,7 +4,7 @@ var React = require('react'),
     GoogleMaps = require('google-maps');
 
 domReady(function () {
-    GoogleMaps.LIBRARIES = ['places'];
+    GoogleMaps.LIBRARIES = ['places', 'adsense'];
     GoogleMaps.load(function (google) {
         React.render(<Application mapService={google}/>, document.getElementById('app'));
     });
