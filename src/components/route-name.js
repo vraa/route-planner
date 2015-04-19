@@ -72,6 +72,9 @@ var RouteName = React.createClass({
         });
     },
     save: function (value) {
+        if (!value) {
+            value = 'Route name';
+        }
         this.setState({
             editing: false
         }, function () {

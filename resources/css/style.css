@@ -137,11 +137,9 @@ body {
     width: 300px;
     height: 500px;
     right: 50px;
-    top: 50px;
+    top: 100px;
     padding: 20px;
     background-color: #ffffff;
-    box-shadow: 0px 0px 5px #cccccc;
-    border: 1px solid #cccccc;
     z-index: 20;
     overflow: scroll;
 }
@@ -244,7 +242,8 @@ ul.actions li {
 .dashboard {
     overflow: hidden;
     width: 100%;
-    background-color: #eeeeee;
+    background-color: #ecf0f1;
+    color: #7f8c8d;
     padding: 10px;
     text-align: center;
     margin-bottom: 20px;
@@ -293,29 +292,65 @@ ul.actions li {
     top: 0;
 }
 
-.route-tabs{
+.route-tabs {
     position: absolute;
     width: 50px;
     right: 345px;
-    top: 50px;
+    top: 100px;
     z-index: 20;
     text-align: center;
     font-size: 1rem;
 }
 
-.route-tabs li{
-    background-color: #ffffff;
+.route-tabs li {
+    background-color: #eeeeee;
     margin: 5px 0;
     padding: 10px 0;
+    border:1px solid #aaaaaa;
     border-radius: 5px 0 0 5px;
 }
 
-.route-tabs li:hover, .route-tabs li.active{
-    background-color: #eeeeee;
+.route-tabs li:hover, .route-tabs li.active {
+    background: #f39c12; /* Old browsers */
+    background: -moz-linear-gradient(left,  #f39c12 0%, #ffffff 73%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#f39c12), color-stop(73%,#ffffff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  #f39c12 0%,#ffffff 73%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  #f39c12 0%,#ffffff 73%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  #f39c12 0%,#ffffff 73%); /* IE10+ */
+    background: linear-gradient(to right,  #f39c12 0%,#ffffff 73%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f39c12', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
     cursor: pointer;
+    border:1px solid #f39c12;
+    border-right: none;
 }
 
-.route-tabs a{
+.route-tabs a {
     text-decoration: none;
     color: #666666;
+}
+
+.edit-route-name input[type='text'] {
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    padding-right: 50px;
+    width: 100%;
+    border-bottom: 1px solid;
+}
+
+header {
+    font-family: 'Roboto', "open sans";
+    font-weight: 100;
+    font-size: 1.2rem;
+    position: absolute;
+    top: 60px;
+    width: 300px;
+    right: 50px;
+    height: 40px;
+    z-index: 20;
+    text-align: right;
+    background-color: #f39c12;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 50px 0 0 0;
 }
