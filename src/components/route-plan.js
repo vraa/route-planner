@@ -69,6 +69,7 @@ var RoutePlan = React.createClass({
         wayPoints.at(index).set({
             name: value
         });
+        vent.trigger('app:save');
         this.setState({
             editingAt: -1
         });
@@ -76,6 +77,7 @@ var RoutePlan = React.createClass({
     addWayPoint: function (index) {
         var wayPoints = this.props.route.get('wayPoints');
         wayPoints.add(new WayPointModel(), {at: index + 1});
+        vent.trigger('app:save');
         this.setState({
             editingAt: index + 1
         });
@@ -84,6 +86,7 @@ var RoutePlan = React.createClass({
         var wayPoints = this.props.route.get('wayPoints');
         if (wayPoints.length > 2) {
             wayPoints.remove(wayPoints.at(index));
+            vent.trigger('app:save');
             this.setState({
                 editingAt: -1
             });
