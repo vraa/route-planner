@@ -343,10 +343,10 @@ header {
     font-weight: 100;
     font-size: 1.2rem;
     position: absolute;
-    top: 60px;
+    top: 40px;
     width: 300px;
     right: 50px;
-    height: 40px;
+    height: 60px;
     z-index: 20;
     text-align: right;
     background-color: #f39c12;
@@ -354,3 +354,12 @@ header {
     padding: 10px;
     border-radius: 50px 0 0 0;
 }
+
+header .author{
+    font-size: .5rem;
+    font-weight: 300;
+    margin-top: 10px;
+}
+ .author a{
+     color: #ffffff;
+ }
