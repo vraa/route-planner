@@ -106,7 +106,7 @@ var RoutePlan = React.createClass({
                     routeInfo = index === 0 ? null : <RouteInfo wayPoint={wayPoint}/>;
 
                 return (
-                    <div key={key}>
+                    <div className='way-point-wrapper' key={key}>
                     {routeInfo}
                         <WayPoint
                         mapService={self.props.mapService}

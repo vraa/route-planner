@@ -41,12 +41,12 @@ var EditWayPoint = React.createClass({
                 <input ref='wayPoint' type='text' name='wayPoint' defaultValue={this.props.name} onBlur={this.onBlur} />
                 <ul className='actions'>
                     <li>
-                        <a href='#' onClick={this.onDone}>
+                        <a title='Save' href='#' onClick={this.onDone}>
                             <i className='icon-done'></i>
                         </a>
                     </li>
                     <li>
-                        <a href='#' onClick={this.onCancel}>
+                        <a title='Cancel' href='#' onClick={this.onCancel}>
                             <i className='icon-undo'></i>
                         </a>
                     </li>
@@ -77,12 +77,12 @@ var ViewWayPoint = React.createClass({
                 </p>
                 <ul className='actions'>
                     <li>
-                        <a href='#' onClick={this.add}>
+                        <a title='Add a new location next' href='#' onClick={this.add}>
                             <i className='icon-add'></i>
                         </a>
                     </li>
                     <li>
-                        <a href='#' onClick={this.remove}>
+                        <a title='Remove this location' href='#' onClick={this.remove}>
                             <i className='icon-clear'></i>
                         </a>
                     </li>

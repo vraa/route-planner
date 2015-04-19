@@ -195,7 +195,7 @@ body {
     display: none;
 }
 
-.viewing:hover .actions {
+.viewing:hover .actions, .way-point-wrapper:last-child .viewing .actions  {
     display: inline-block;
 }
 
