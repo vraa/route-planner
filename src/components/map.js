@@ -18,7 +18,7 @@ var Map = React.createClass({
         });
 
         vent.on('map:route:way-points:update', this.updateWayPoints, this);
-        //this.adsense();
+        this.adsense();
         this.updateWayPoints();
     },
     adsense: function () {
