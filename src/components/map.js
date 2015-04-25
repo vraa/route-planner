@@ -18,26 +18,7 @@ var Map = React.createClass({
         });
 
         vent.on('map:route:way-points:update', this.updateWayPoints, this);
-        this.adsense();
         this.updateWayPoints();
-    },
-    adsense: function () {
-        var adUnitDiv = document.createElement('div'),
-            google = this.props.mapService;
-        var adUnitOptions = {
-            format: google.maps.adsense.AdFormat.BANNER,
-            position: google.maps.ControlPosition.BOTTOM,
-            backgroundColor: '#ffffff',
-            borderColor: '#ffffff',
-            titleColor: '#f39c12',
-            textColor: '#000000',
-            urlColor: '#f39c12',
-            map: this.map,
-            visible: true,
-            channelNumber: '5399940666',
-            publisherId: 'pub-4601926589924919'
-        }
-        new google.maps.adsense.AdUnit(adUnitDiv, adUnitOptions);
     },
     updateDistanceData: function (response) {
         vent.trigger('map:route:distance:update', response);
