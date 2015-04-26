@@ -69,7 +69,7 @@ a {
     overflow: hidden;
   }
 
-  .route-info {
+  .place {
     position: absolute;
     left: $plan-width;
     top: $tab-height + $map-height;
@@ -222,7 +222,8 @@ body {
   .marker {
     position: absolute;
     cursor: pointer;
-    &:hover {
+    &:hover,
+    &.selected {
       color: $dark-orange;
     }
   }

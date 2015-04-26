@@ -1,4 +1,5 @@
-var React = require('react');
+var React = require('react'),
+    classNames = require('classnames');
 
 var EditWayPoint = React.createClass({
     componentDidMount: function () {
@@ -85,11 +86,15 @@ var ViewWayPoint = React.createClass({
 });
 
 var WayPoint = React.createClass({
+    selectWayPoint: function () {
+        this.props.onAction('select');
+    },
     render: function () {
         var wayPoint = this.props.wayPoint,
             name = wayPoint.get('name'),
             editing = this.props.editing,
-            element = null;
+            element = null,
+            markerClassNames = classNames('marker icon-adjust', {selected: this.props.selected})
         if (editing) {
             element = (<EditWayPoint
             mapService={this.props.mapService}
@@ -103,7 +108,7 @@ var WayPoint = React.createClass({
         }
         return (
             <div className='way-point'>
-                <i className='marker icon-adjust'/>
+                <i onClick={this.selectWayPoint} className={markerClassNames}/>
             {element}
             </div>
             );

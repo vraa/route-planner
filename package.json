@@ -12,6 +12,7 @@
         "google-maps": "*",
         "domready": "*",
         "promise": "*",
+        "classnames": "*",
         "vent": "*"
     },
     "devDependencies": {

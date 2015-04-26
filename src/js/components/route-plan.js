@@ -9,7 +9,8 @@ var React = require('react'),
 var RoutePlan = React.createClass({
     getInitialState: function () {
         return ({
-            editingAt: -1
+            editingAt: -1,
+            selected: -1
         });
     },
     componentDidMount: function () {
@@ -57,6 +58,9 @@ var RoutePlan = React.createClass({
             case 'add':
                 this.addWayPoint(index);
                 break;
+            case 'select':
+                this.selectWayPoint(index);
+                break;
         }
     },
     editWayPoint: function (index) {
@@ -65,11 +69,12 @@ var RoutePlan = React.createClass({
         });
     },
     saveWayPoint: function (index, options) {
-        var wayPoints = this.props.route.get('wayPoints');
+        var wayPoints = this.props.route.get('wayPoints'),
+            placeDetails = options.placeDetails || {};
         wayPoints.at(index).set({
             name: options.value,
-            placeId: options.data.place_id,
-            placeDetails: options.placeDetails
+            placeId: placeDetails.place_id,
+            placeDetails: placeDetails
         });
         vent.trigger('app:save');
         this.setState({
@@ -99,6 +104,11 @@ var RoutePlan = React.createClass({
     updateWayPoints: function () {
         vent.trigger('map:route:way-points:update');
     },
+    selectWayPoint: function (index) {
+        this.setState({
+            selected: index
+        });
+    },
     render: function () {
         var route = this.props.route,
             wayPoints = route.get('wayPoints'),
@@ -111,9 +121,11 @@ var RoutePlan = React.createClass({
                     <div className='way-point-wrapper' key={key}>
                     {wayPointInfo}
                         <WayPoint
+                        index={index}
                         mapService={self.props.mapService}
                         wayPoint={wayPoint}
                         editing={self.state.editingAt === index}
+                        selected={self.state.selected === index}
                         onAction={self.onWayPointAction.bind(self, index)}
                         />
                     </div>
