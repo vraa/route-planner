@@ -98,17 +98,18 @@ var Application = React.createClass({
         var mapService = this.props.mapService,
             route = this.state.routes.at(this.state.activeRoute);
         return (
-            <div>
-                <Header/>
+
+            <div className='route-planner'>
+                <RouteTabs
+                onAdd={this.onRouteAdd}
+                onSwitch={this.onRouteSwitch}
+                routes={this.state.routes}
+                active={this.state.activeRoute}
+                />
+                <RoutePlan mapService={mapService} route={route} routeAction={this.onAction} />
                 <Map mapService={mapService} route={route}/>
-                <div className='route-planner'>
-                    <RouteTabs
-                    onAdd={this.onRouteAdd}
-                    onSwitch={this.onRouteSwitch}
-                    routes={this.state.routes}
-                    active={this.state.activeRoute}
-                    />
-                    <RoutePlan mapService={mapService} route={route} routeAction={this.onAction} />
+                <div className='route-info'>
+                Route Info goes here
                 </div>
             </div>
             );

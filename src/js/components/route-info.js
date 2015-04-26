@@ -9,7 +9,7 @@ var RouteInfo = React.createClass({
             durationText = (duration && duration.text) || '';
 
         return (
-            <div className='route-info'>
+            <div className='way-point-info'>
                 <p>
                     <span className='distance'>{distanceText}</span>
                     <span className='duration'>{durationText}</span>

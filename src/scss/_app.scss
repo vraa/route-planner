@@ -1,0 +1,265 @@
+@import "variables";
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+body {
+  font-family: $font-stack;
+  font-weight: 300;
+  background-color: $white;
+  color: $black;
+}
+
+a {
+  color: $dark-orange;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $dark-orange;
+    color: $white;
+  }
+}
+
+@media (min-width: 800px) {
+
+  .app {
+    margin: $big-pad;
+  }
+
+  .route-planner {
+    position: relative;
+    min-width: $app-width;
+    height: $app-height;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .route-tabs {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $tab-height;
+  }
+
+  .route-plan {
+    position: absolute;
+    top: $tab-height;
+    height: $app-height - $tab-height;
+    width: $plan-width;
+    overflow: scroll;
+  }
+
+  .route-map {
+    position: relative;
+    margin-left: $plan-width;
+    height: $map-height;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .route-info {
+    position: absolute;
+    left: $plan-width;
+    top: $tab-height + $map-height;
+    z-index: 10;
+    height: $app-height - ($tab-height + $map-height);
+    margin: 0 auto;
+    width: 100%;
+  }
+
+}
+
+body {
+  background-color: $light;
+}
+
+.app {
+}
+
+.route-plan {
+  background-color: $white;
+  color: $black;
+
+  .route-control {
+    padding: $pad;
+  }
+
+  .view-route-name {
+    position: relative;
+    font-size: 1.4rem;
+  }
+
+  .edit-route-name {
+    position: relative;
+    font-size: 1.4rem;
+
+    input[type='text'] {
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid $light-orange;
+      font-size: 1.2rem;
+    }
+
+    .done {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  .remove-route {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+.dashboard {
+  @include clearfix;
+  padding: $pad;
+  background-color: $light-orange;
+  color: $dark;
+  text-align: center;
+
+  .value {
+    font-size: 1.8rem;
+  }
+  .unit {
+    font-size: .8rem;
+    font-weight: 100;
+    text-transform: uppercase;
+  }
+
+  .distance {
+    float: left;
+    width: 30%;
+  }
+
+  .duration {
+    float: right;
+    width: 70%;
+  }
+
+  .duration li {
+    display: inline-block;
+    margin: 0 $pad/2;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.route-map {
+}
+
+.route-tabs {
+
+  .tab {
+    font-size: .8rem;
+    display: inline-block;
+    padding: $pad/2 $pad;
+    height: $tab-height;
+    cursor: pointer;
+  }
+
+  .tab.active,
+  .tab:hover,
+  .tab:focus {
+    background-color: $white
+  }
+}
+
+.actions li {
+  display: inline-block;
+  margin: 0 $pad/4;
+
+  &:li:last-child {
+    margin-right: 0;
+  }
+}
+
+.way-points {
+  padding: $pad;
+}
+
+.way-point-wrapper {
+  margin-bottom: $pad;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.way-point-info {
+  margin-bottom: $pad;
+  padding-left: 2*$pad;
+  font-size: .8rem;
+  opacity: .5;
+  .distance {
+    margin-right: $pad;
+  }
+}
+
+.way-point {
+  position: relative;
+  .marker {
+    position: absolute;
+    cursor: pointer;
+    &:hover {
+      color: $dark-orange;
+    }
+  }
+  .viewing {
+    margin-left: 2*$pad;
+
+    .way-point-name {
+      @include ellipsis;
+      padding-right: 2*$pad + 10;
+    }
+    .actions {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+  .editing {
+    position: relative;
+    margin-left: 2*$pad;
+    font-size: 1rem;
+
+    input[type='text'] {
+      font-size: 1rem;
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid $light-orange;
+      padding-right: 2*$pad + 10;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .done {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}

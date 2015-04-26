@@ -39,18 +39,9 @@ var EditWayPoint = React.createClass({
         return (
             <div className='editing'>
                 <input ref='wayPoint' type='text' name='wayPoint' defaultValue={this.props.name} onBlur={this.onBlur} />
-                <ul className='actions'>
-                    <li>
-                        <a title='Save' href='#' onClick={this.onDone}>
-                            <i className='icon-done'></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a title='Cancel' href='#' onClick={this.onCancel}>
-                            <i className='icon-undo'></i>
-                        </a>
-                    </li>
-                </ul>
+                <a className='done' title='Save' href='#' onClick={this.onDone}>
+                    <i className='icon-done'></i>
+                </a>
             </div>
             );
     }

@@ -5,7 +5,7 @@ var Routes = require('../models/routes'),
     route;
 
 routes = new Routes();
-route = new Route({
+routes.add(new Route({
     name: 'Weekend drive',
     wayPoints: new WayPoints([
         {name: 'San Francisco, CA'},
@@ -13,9 +13,7 @@ route = new Route({
         {name: 'Santa Cruz, CA'},
         {name: 'Monterey, CA'}
     ])
-});
-
-routes.add(route);
+}));
 routes.add(new Route({
     name: 'Cross country trip',
     wayPoints: new WayPoints([

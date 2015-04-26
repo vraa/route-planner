@@ -15,13 +15,9 @@ var EditRouteName = React.createClass({
         return (
             <div className='edit-route-name'>
                 <input ref='routeName' type='text' name='routeName' defaultValue={this.props.name} onBlur={this.onBlur} />
-                <ul className='actions'>
-                    <li>
-                        <a href='#' onClick={this.onDone}>
-                            <i className='icon-done'></i>
-                        </a>
-                    </li>
-                </ul>
+                <a className='done' href='#' onClick={this.onDone}>
+                    <i className='icon-done'></i>
+                </a>
             </div>
             );
     }

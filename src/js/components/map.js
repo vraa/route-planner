@@ -63,7 +63,7 @@ var Map = React.createClass({
     },
     render: function () {
         return (
-            <div id='map' className='map'></div>
+            <div id='map' className='route-map'></div>
             );
     }
 });

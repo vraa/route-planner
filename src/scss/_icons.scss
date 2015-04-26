@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url('../../resources/fonts/icomoon.eot?ujw5cl');
+  src: url('../../resources/fonts/icomoon.eot?#iefixujw5cl') format('embedded-opentype'),
+  url('../../resources/fonts/icomoon.woff?ujw5cl') format('woff'),
+  url('../../resources/fonts/icomoon.ttf?ujw5cl') format('truetype'),
+  url('../../resources/fonts/icomoon.svg?ujw5cl#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-done:before {
+  content: "\e600";
+}
+
+.icon-favorite:before {
+  content: "\e601";
+}
+
+.icon-location-on:before {
+  content: "\e602";
+}
+
+.icon-add:before {
+  content: "\e603";
+}
+
+.icon-clear:before {
+  content: "\e604";
+}
+
+.icon-create:before {
+  content: "\e605";
+}
+
+.icon-undo:before {
+  content: "\e606";
+}
+
+.icon-arrow-down:before {
+  content: "\e607";
+}
+
+.icon-adjust:before {
+  content: "\e608";
+}

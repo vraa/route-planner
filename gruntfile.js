@@ -2,10 +2,26 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        watch: {
+            options: {
+                atBegin: true
+            },
+            sass: {
+                files: ['src/scss/**/*.scss'],
+                tasks: ['sass']
+            }
+        },
         browserify: {
             publish: {
-                src: ['src/index.js'],
+                src: ['src/js/index.js'],
                 dest: 'resources/js/routeplanner.js'
+            }
+        },
+        sass: {
+            dist: {
+                files: {
+                    'resources/css/main.css': 'src/scss/main.scss'
+                }
             }
         },
         connect: {
@@ -19,6 +35,7 @@ module.exports = function (grunt) {
         }
     });
 
+    grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-browserify');

@@ -17,7 +17,7 @@ var RouteTabs = React.createClass({
         var routes = this.props.routes,
             self = this,
             tabsElm = routes.map(function (route, i) {
-                var active = (i === self.props.active) ? 'active' : '';
+                var active = (i === self.props.active) ? 'active tab' : 'tab';
                 return (
                     <li title='Switch to this route' className={active} onClick={self.switchRoute.bind(self, i)} key={'route' + i}>
                         {i + 1}
