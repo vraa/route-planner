@@ -8,10 +8,9 @@ routes = new Routes();
 routes.add(new Route({
     name: 'Weekend drive',
     wayPoints: new WayPoints([
-        {name: 'San Francisco, CA'},
-        {name: 'Half moon bay, CA'},
-        {name: 'Santa Cruz, CA'},
-        {name: 'Monterey, CA'}
+        {name: 'San Francisco, CA', placeId: 'ChIJIQBpAG2ahYAR_6128GcTUEo'},
+        {name: 'Half moon bay, CA', placeId: 'ChIJC8sZCqULj4ARVJvnNcic_V4'},
+        {name: 'Santa Cruz, CA', placeId: 'ChIJSdU2fBtEjoARhfnXKksQylI'}
     ])
 }));
 routes.add(new Route({

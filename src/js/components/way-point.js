@@ -11,7 +11,8 @@ var EditWayPoint = React.createClass({
     onPlaceChange: function () {
         var place = this.autoComplete.getPlace();
         this.props.onAction('save', {
-            value: place.formatted_address
+            value: place.formatted_address,
+            placeDetails: place
         });
     },
     onDone: function (e) {

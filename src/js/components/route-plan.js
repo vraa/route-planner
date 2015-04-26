@@ -2,7 +2,7 @@ var React = require('react'),
     RouteName = require('./route-name'),
     Dashboard = require('./dashboard'),
     WayPoint = require('./way-point'),
-    RouteInfo = require('./route-info'),
+    WayPointInfo = require('./way-point-info'),
     WayPointModel = require('../models/way-point'),
     vent = require('../util/vent');
 
@@ -49,7 +49,7 @@ var RoutePlan = React.createClass({
                 this.editWayPoint(index);
                 break;
             case 'save':
-                this.saveWayPoint(index, options.value);
+                this.saveWayPoint(index, options);
                 break;
             case 'remove':
                 this.removeWayPoint(index);
@@ -64,10 +64,12 @@ var RoutePlan = React.createClass({
             editingAt: index
         });
     },
-    saveWayPoint: function (index, value) {
+    saveWayPoint: function (index, options) {
         var wayPoints = this.props.route.get('wayPoints');
         wayPoints.at(index).set({
-            name: value
+            name: options.value,
+            placeId: options.data.place_id,
+            placeDetails: options.placeDetails
         });
         vent.trigger('app:save');
         this.setState({
@@ -103,11 +105,11 @@ var RoutePlan = React.createClass({
             self = this,
             wayPointsElm = wayPoints.map(function (wayPoint, index) {
                 var key = 'wayPoint' + index,
-                    routeInfo = index === 0 ? null : <RouteInfo wayPoint={wayPoint}/>;
+                    wayPointInfo = index === 0 ? null : <WayPointInfo wayPoint={wayPoint}/>;
 
                 return (
                     <div className='way-point-wrapper' key={key}>
-                    {routeInfo}
+                    {wayPointInfo}
                         <WayPoint
                         mapService={self.props.mapService}
                         wayPoint={wayPoint}

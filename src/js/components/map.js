@@ -1,8 +1,10 @@
 var React = require('react'),
-    vent = require('../util/vent');
+    vent = require('../util/vent'),
+    Promise = require('promise');
 
 var directionsDisplay,
     directionsService,
+    placesService,
     DEFAULT_LOCATION;
 
 var Map = React.createClass({
@@ -16,12 +18,45 @@ var Map = React.createClass({
             zoom: 7,
             center: DEFAULT_LOCATION
         });
+        placesService = new google.maps.places.PlacesService(this.map);
 
+        vent.on('map:places:refresh', this.refreshPlaces, this);
         vent.on('map:route:way-points:update', this.updateWayPoints, this);
         this.updateWayPoints();
     },
     updateDistanceData: function (response) {
         vent.trigger('map:route:distance:update', response);
+    },
+    refreshPlaces: function () {
+        var wayPoints = this.props.route.get('wayPoints'),
+            placePromises = [];
+        wayPoints.each(function (wayPoint) {
+            var placeId = wayPoint.get('placeId'),
+                placeDetails = wayPoint.get('placeDetails'),
+                promise;
+
+            if (placeId && !placeDetails) {
+                promise = new Promise(function (resolve) {
+                    placesService.getDetails({
+                        placeId: placeId
+                    }, function (place, status) {
+                        if (status === 'OK') {
+                            wayPoint.set({
+                                placeId: place.place_id,
+                                placeDetails: place
+                            });
+                            resolve();
+                        }
+                    });
+                });
+                placePromises.push(promise);
+            }
+        });
+        if (placePromises.length > 0) {
+            Promise.all(placePromises).then(function () {
+                vent.trigger('app:save');
+            });
+        }
     },
     updateWayPoints: function () {
         var wayPoints = this.props.route.get('wayPoints'),

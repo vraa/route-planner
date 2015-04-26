@@ -1,6 +1,6 @@
 var React = require('react');
 
-var RouteInfo = React.createClass({
+var WayPointInfo = React.createClass({
     render: function () {
         var wayPoint = this.props.wayPoint,
             distance = wayPoint.get('distance'),
@@ -19,4 +19,4 @@ var RouteInfo = React.createClass({
     }
 });
 
-module.exports = RouteInfo;
+module.exports = WayPointInfo;

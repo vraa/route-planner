@@ -18,6 +18,7 @@ var Application = React.createClass({
         };
     },
     componentDidMount: function () {
+        vent.trigger('map:places:refresh');
         this.state.routes.on('remove change', this.updateRouteWayPoints);
         vent.on('app:save', this.save, this);
     },
