@@ -4,6 +4,7 @@ var React = require('react'),
     RouteTabs = require('./route-tabs'),
     RoutePlan = require('./route-plan'),
     Map = require('./map'),
+    Place = require('./place'),
     Routes = require('../models/routes'),
     Route = require('../models/route'),
     WayPoints = require('../models/way-points'),
@@ -14,13 +15,20 @@ var Application = React.createClass({
     getInitialState: function () {
         return {
             routes: this.load() || SeedData.routes,
-            activeRoute: 0
+            activeRoute: 0,
+            selectedPlace: null
         };
     },
     componentDidMount: function () {
         vent.trigger('map:places:refresh');
         this.state.routes.on('remove change', this.updateRouteWayPoints);
         vent.on('app:save', this.save, this);
+        vent.on('place:select', this.onSelectPlace, this);
+    },
+    onSelectPlace: function (place) {
+        this.setState({
+            selectedPlace: place
+        });
     },
     onAction: function (action, value) {
         switch (action) {
@@ -97,7 +105,8 @@ var Application = React.createClass({
     },
     render: function () {
         var mapService = this.props.mapService,
-            route = this.state.routes.at(this.state.activeRoute);
+            route = this.state.routes.at(this.state.activeRoute),
+            placeElm = this.state.selectedPlace ? <Place place={this.state.selectedPlace} /> : null;
         return (
 
             <div className='route-planner'>
@@ -109,9 +118,7 @@ var Application = React.createClass({
                 />
                 <RoutePlan mapService={mapService} route={route} routeAction={this.onAction} />
                 <Map mapService={mapService} route={route}/>
-                <div className='route-info'>
-                Route Info goes here
-                </div>
+                {placeElm}
             </div>
             );
     }

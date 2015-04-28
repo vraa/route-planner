@@ -5,7 +5,8 @@ var React = require('react'),
 var directionsDisplay,
     directionsService,
     placesService,
-    DEFAULT_LOCATION;
+    DEFAULT_LOCATION,
+    LatLng;
 
 var Map = React.createClass({
 
@@ -14,18 +15,51 @@ var Map = React.createClass({
         directionsDisplay = new google.maps.DirectionsRenderer();
         directionsService = new google.maps.DirectionsService();
         DEFAULT_LOCATION = new google.maps.LatLng(13.0827, 80.2707);
+        LatLng = google.maps.LatLng;
         this.renderMap({
             zoom: 7,
             center: DEFAULT_LOCATION
         });
         placesService = new google.maps.places.PlacesService(this.map);
 
+        vent.on('map:nearby:places:refresh', this.refreshNearby, this);
         vent.on('map:places:refresh', this.refreshPlaces, this);
         vent.on('map:route:way-points:update', this.updateWayPoints, this);
         this.updateWayPoints();
     },
     updateDistanceData: function (response) {
         vent.trigger('map:route:distance:update', response);
+    },
+    refreshNearby: function () {
+        var wayPoints = this.props.route.get('wayPoints'),
+            nearByPromises = [];
+        wayPoints.each(function (wayPoint) {
+            var placeId = wayPoint.get('placeId'),
+                nearBy = wayPoint.get('nearBy'),
+                promise,
+                location = wayPoint.get('placeDetails').geometry.location,
+                latlng = new LatLng(location.k, location.D);
+            if (placeId && !nearBy) {
+                promise = new Promise(function (resolve) {
+                    placesService.nearbySearch({
+                        location: latlng,
+                        radius: '50',
+                        query: 'attractions'
+                    }, function (results, status) {
+                        if (status === 'OK') {
+                            wayPoint.set('nearBy', results, {silent: true});
+                            resolve();
+                        }
+                    });
+                });
+                nearByPromises.push(promise);
+            }
+        });
+        if (nearByPromises.length > 0) {
+            Promise.all(nearByPromises).then(function () {
+                vent.trigger('app:save');
+            });
+        }
     },
     refreshPlaces: function () {
         var wayPoints = this.props.route.get('wayPoints'),
@@ -44,7 +78,7 @@ var Map = React.createClass({
                             wayPoint.set({
                                 placeId: place.place_id,
                                 placeDetails: place
-                            });
+                            }, {silent: true});
                             resolve();
                         }
                     });
@@ -54,8 +88,11 @@ var Map = React.createClass({
         });
         if (placePromises.length > 0) {
             Promise.all(placePromises).then(function () {
+                vent.trigger('map:nearby:places:refresh');
                 vent.trigger('app:save');
             });
+        } else {
+            vent.trigger('map:nearby:places:refresh');
         }
     },
     updateWayPoints: function () {

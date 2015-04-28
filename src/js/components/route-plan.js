@@ -107,6 +107,8 @@ var RoutePlan = React.createClass({
     selectWayPoint: function (index) {
         this.setState({
             selected: index
+        }, function () {
+            vent.trigger('place:select', this.props.route.get('wayPoints').at(index));
         });
     },
     render: function () {
