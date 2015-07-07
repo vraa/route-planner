@@ -116,14 +116,16 @@ var Application = React.createClass({
 
             <div className='route-planner'>
                 <Header/>
-                <RouteTabs
-                onAdd={this.onRouteAdd}
-                onSwitch={this.onRouteSwitch}
-                routes={this.state.routes}
-                active={this.state.activeRoute}
-                />
-                <RoutePlan mapService={mapService} route={route} routeAction={this.onAction} />
                 <Map mapService={mapService} route={route}/>
+                <div className='panel'>
+                    <RouteTabs
+                    onAdd={this.onRouteAdd}
+                    onSwitch={this.onRouteSwitch}
+                    routes={this.state.routes}
+                    active={this.state.activeRoute}
+                    />
+                    <RoutePlan mapService={mapService} route={route} routeAction={this.onAction} />
+                </div>
             </div>
             );
     }

@@ -18,7 +18,8 @@ var Map = React.createClass({
         LatLng = google.maps.LatLng;
         this.renderMap({
             zoom: 7,
-            center: DEFAULT_LOCATION
+            center: DEFAULT_LOCATION,
+            disableDefaultUI:true
         });
         placesService = new google.maps.places.PlacesService(this.map);
 

@@ -304,3 +304,21 @@ header{
   }
 
 }
+
+@media (min-width: 600px) {
+  .panel{
+    max-width: 400px;
+    width: 400px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+  }
+  .route-map{
+    top: 0;
+    left: 0;
+    display: block;
+  }
+  .route-plan{
+    opacity: .9;
+  }
+}
