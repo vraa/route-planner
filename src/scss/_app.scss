@@ -36,6 +36,35 @@ body {
 }
 
 .app {
+  width: 100%;
+}
+
+.route-planner{
+  margin-top: 50px;
+}
+
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background-color: $primary-color;
+  color: $light;
+  h1{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
+.place {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top:0;
+  left: 0;
 }
 
 .route-plan {
@@ -80,9 +109,11 @@ body {
 .dashboard {
   @include clearfix;
   padding: $pad;
-  background-color: $light-orange;
-  color: $dark;
+  background-color: $white;
+  color: $primary-color;
   text-align: center;
+  border-top: 1px dashed $primary-color;
+  border-bottom: 1px dashed $primary-color;
 
   .value {
     font-size: 1.8rem;
@@ -118,6 +149,7 @@ body {
 }
 
 .route-map {
+  display: none;
 }
 
 .route-tabs {
@@ -126,6 +158,7 @@ body {
     font-size: .8rem;
     display: inline-block;
     cursor: pointer;
+    padding: $pad;
   }
 
   .tab.active,

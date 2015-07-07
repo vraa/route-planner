@@ -115,6 +115,7 @@ var Application = React.createClass({
         return (
 
             <div className='route-planner'>
+                <Header/>
                 <RouteTabs
                 onAdd={this.onRouteAdd}
                 onSwitch={this.onRouteSwitch}
