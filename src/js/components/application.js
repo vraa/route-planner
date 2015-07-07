@@ -5,8 +5,8 @@ var React = require('react'),
     RoutePlan = require('./route-plan'),
     Map = require('./map'),
     Place = require('./place'),
-    Routes = require('../models/routes'),
-    Route = require('../models/route'),
+    RouteCollection = require('../models/routes'),
+    RouteModel = require('../models/route'),
     WayPoints = require('../models/way-points'),
     SeedData = require('../util/seed-data');
 
@@ -24,10 +24,16 @@ var Application = React.createClass({
         this.state.routes.on('remove change', this.updateRouteWayPoints);
         vent.on('app:save', this.save, this);
         vent.on('place:select', this.onSelectPlace, this);
+        vent.on('place:close', this.onClosePlace, this);
     },
     onSelectPlace: function (place) {
         this.setState({
             selectedPlace: place
+        });
+    },
+    onClosePlace: function () {
+        this.setState({
+            selectedPlace: null
         });
     },
     onAction: function (action, value) {
@@ -89,9 +95,9 @@ var Application = React.createClass({
             routes = null;
         if (!!saved) {
             saved = JSON.parse(saved);
-            routes = new Routes();
+            routes = new RouteCollection();
             saved.map(function (route) {
-                var route = new Route({
+                var route = new RouteModel({
                     name: route.name,
                     wayPoints: new WayPoints(route.wayPoints)
                 });
@@ -105,8 +111,7 @@ var Application = React.createClass({
     },
     render: function () {
         var mapService = this.props.mapService,
-            route = this.state.routes.at(this.state.activeRoute),
-            placeElm = this.state.selectedPlace ? <Place place={this.state.selectedPlace} /> : null;
+            route = this.state.routes.at(this.state.activeRoute);
         return (
 
             <div className='route-planner'>
@@ -118,7 +123,6 @@ var Application = React.createClass({
                 />
                 <RoutePlan mapService={mapService} route={route} routeAction={this.onAction} />
                 <Map mapService={mapService} route={route}/>
-                {placeElm}
             </div>
             );
     }

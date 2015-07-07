@@ -86,7 +86,8 @@ var ViewWayPoint = React.createClass({
 });
 
 var WayPoint = React.createClass({
-    selectWayPoint: function () {
+    selectWayPoint: function (e) {
+        e.preventDefault();
         this.props.onAction('select');
     },
     render: function () {

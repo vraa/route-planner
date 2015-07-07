@@ -36,9 +36,11 @@ var Map = React.createClass({
         wayPoints.each(function (wayPoint) {
             var placeId = wayPoint.get('placeId'),
                 nearBy = wayPoint.get('nearBy'),
-                promise,
-                location = wayPoint.get('placeDetails').geometry.location,
-                latlng = new LatLng(location.k, location.D);
+                placeDetails = wayPoint.get('placeDetails') || {},
+                geometry = placeDetails.geometry || {},
+                location = geometry || {},
+                latlng = new LatLng(location.k, location.D),
+                promise;
             if (placeId && !nearBy) {
                 promise = new Promise(function (resolve) {
                     placesService.nearbySearch({
@@ -88,11 +90,11 @@ var Map = React.createClass({
         });
         if (placePromises.length > 0) {
             Promise.all(placePromises).then(function () {
-                vent.trigger('map:nearby:places:refresh');
+                //vent.trigger('map:nearby:places:refresh');
                 vent.trigger('app:save');
             });
         } else {
-            vent.trigger('map:nearby:places:refresh');
+            //vent.trigger('map:nearby:places:refresh');
         }
     },
     updateWayPoints: function () {

@@ -28,7 +28,7 @@ var RouteTabs = React.createClass({
         return (
             <ol className='route-tabs'>
             {tabsElm}
-                <li title='Add a new route' onClick={this.addRoute} key='add-route'>
+                <li className='tab' title='Add a new route' onClick={this.addRoute} key='add-route'>
                     <i className='icon-add'></i>
                 </li>
             </ol>

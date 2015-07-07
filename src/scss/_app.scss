@@ -31,56 +31,6 @@ a {
   }
 }
 
-@media (min-width: 800px) {
-
-  .app {
-    margin: $big-pad;
-  }
-
-  .route-planner {
-    position: relative;
-    min-width: $app-width;
-    height: $app-height;
-    margin: 0 auto;
-    overflow: hidden;
-  }
-
-  .route-tabs {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: $tab-height;
-  }
-
-  .route-plan {
-    position: absolute;
-    top: $tab-height;
-    height: $app-height - $tab-height;
-    width: $plan-width;
-    overflow: scroll;
-  }
-
-  .route-map {
-    position: relative;
-    margin-left: $plan-width;
-    height: $map-height;
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .place {
-    position: absolute;
-    left: $plan-width;
-    top: $tab-height + $map-height;
-    z-index: 10;
-    height: $app-height - ($tab-height + $map-height);
-    margin: 0 auto;
-    width: 100%;
-  }
-
-}
-
 body {
   background-color: $light;
 }
@@ -91,6 +41,7 @@ body {
 .route-plan {
   background-color: $white;
   color: $black;
+  border-right: 1px solid $light-orange;
 
   .route-control {
     padding: $pad;
@@ -174,8 +125,6 @@ body {
   .tab {
     font-size: .8rem;
     display: inline-block;
-    padding: $pad/2 $pad;
-    height: $tab-height;
     cursor: pointer;
   }
 
@@ -263,4 +212,62 @@ body {
       right: 0;
     }
   }
+}
+
+.place {
+  background-color: $white;
+  padding: $pad;
+
+  h2 {
+    @include ellipsis;
+    font-size: 1.5rem;
+    margin-bottom: $pad/2;
+    margin-top: $pad/2;
+    padding-right: $pad + ($pad/2);
+  }
+
+  address {
+    font-size: .8rem;
+    margin-bottom: $pad;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: $pad/2;
+  }
+
+  .details {
+    padding: $pad 0;
+  }
+
+  .search-terms {
+    a {
+      color: $dark;
+      border-bottom: 1px solid $dark;
+    }
+    li {
+      display: inline-block;
+      margin-right: $pad/2;
+      font-size: .9rem;
+    }
+
+    input[type='text'] {
+      border: 0;
+      border-bottom: 1px solid $light-orange;
+      font-size: 1rem;
+      widows: 100px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .close-place {
+    position: absolute;
+    top: $pad;
+    right: $pad;
+    font-size: 2rem;
+  }
+
 }
