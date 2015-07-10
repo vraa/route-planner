@@ -70,7 +70,6 @@ header{
 .route-plan {
   background-color: $white;
   color: $black;
-  border-right: 1px solid $light-orange;
 
   .route-control {
     padding: $pad;
@@ -320,5 +319,6 @@ header{
   }
   .route-plan{
     opacity: .9;
+    overflow: hidden;
   }
 }

@@ -1,4 +1,4 @@
-var React = require('react'),
+var React = require('react/addons'),
     RouteName = require('./route-name'),
     Dashboard = require('./dashboard'),
     WayPoint = require('./way-point'),
@@ -21,6 +21,14 @@ var RoutePlan = React.createClass({
         if (this.props.route !== nextProps.route) {
             this.props.route.get('wayPoints').off('remove change');
             nextProps.route.get('wayPoints').on('remove change', this.updateWayPoints);
+            this.setState({
+                routeChange: true,
+                slideTo: nextProps.routeIndex < this.props.routeIndex ? 'left' : 'right'
+            });
+        } else {
+            this.setState({
+                routeChange: false
+            });
         }
     },
     componentWillUnmount: function () {
@@ -132,13 +140,23 @@ var RoutePlan = React.createClass({
                         />
                     </div>
                     );
+            }),
+            cx = React.addons.classSet,
+            classes = cx({
+                'animated': this.state.routeChange || this.props.fadeOut,
+                'slideInLeft': this.state.routeChange && this.state.slideTo === 'left',
+                'slideInRight': this.state.routeChange && this.state.slideTo === 'right',
+                'fadeOut': this.props.fadeOut
             });
+
         return (
             <div className='route-plan'>
-                <RouteName route={route} onAction={this.props.routeAction}/>
-                <Dashboard route={route}/>
-                <div ref='wayPoints' className='way-points'>
+                <div className={classes} key={'route' + this.props.routeIndex}>
+                    <RouteName route={route} onAction={this.props.routeAction}/>
+                    <Dashboard route={route}/>
+                    <div ref='wayPoints' className='way-points'>
                     {wayPointsElm}
+                    </div>
                 </div>
             </div>
             );

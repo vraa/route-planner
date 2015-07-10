@@ -15,6 +15,7 @@ var Application = React.createClass({
     getInitialState: function () {
         return {
             routes: this.load() || SeedData.routes,
+            previousRoute: -1,
             activeRoute: 0,
             selectedPlace: null
         };
@@ -48,10 +49,18 @@ var Application = React.createClass({
     },
     onRouteSwitch: function (routeIndex) {
         this.setState({
-            activeRoute: routeIndex
+            hideActiveRoute: true
         }, function () {
-            vent.trigger('map:route:way-points:update');
-        });
+            setTimeout(function () {
+                this.setState({
+                    hideActiveRoute: false,
+                    previousRoute: this.state.activeRoute,
+                    activeRoute: routeIndex
+                }, function () {
+                    vent.trigger('map:route:way-points:update');
+                });
+            }.bind(this), 250);
+        })
     },
     onRouteNameChange: function (value) {
         var route = this.state.routes.at(this.state.activeRoute);
@@ -124,7 +133,13 @@ var Application = React.createClass({
                     routes={this.state.routes}
                     active={this.state.activeRoute}
                     />
-                    <RoutePlan mapService={mapService} route={route} routeAction={this.onAction} />
+                    <RoutePlan
+                    mapService={mapService}
+                    route={route}
+                    routeIndex={this.state.activeRoute}
+                    routeAction={this.onAction}
+                    fadeOut={this.state.hideActiveRoute}
+                    />
                 </div>
             </div>
             );
