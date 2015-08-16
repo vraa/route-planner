@@ -7,5 +7,5 @@
 * See distance and time details for each way points and whole route.
 * Data is stored in your browser. So the next time you visit the route planner, your saved plan will be loaded automatically.
 
-[![Route Planner](http://i.imgur.com/7FotT7B.png)](http://veerasundar.com/route-planner)
+[![Route Planner](http://i.imgur.com/BwVt4y2.png?1)](http://veerasundar.com/route-planner)
 
