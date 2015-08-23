@@ -1,6 +1,6 @@
 {
     "name": "routeplanner",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "Google Maps Route Planner",
     "main": "index.js",
     "dependencies": {
