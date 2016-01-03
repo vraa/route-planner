@@ -13,8 +13,12 @@ module.exports = function (grunt) {
         },
         browserify: {
             publish: {
-                src: ['src/js/index.js'],
-                dest: 'resources/js/routeplanner.js'
+                files: {
+                    'resources/js/routeplanner.js': ['src/js/index.js']
+                },
+                options : {
+                    transform : ['reactify']
+                }
             }
         },
         sass: {

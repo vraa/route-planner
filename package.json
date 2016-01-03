@@ -4,6 +4,7 @@
     "description": "Google Maps Route Planner",
     "main": "index.js",
     "dependencies": {
+        "jquery": "*",
         "backbone": "*",
         "underscore": "*",
         "react": "*",
