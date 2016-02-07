@@ -1,4 +1,5 @@
 var React = require('react'),
+    ReactDOM = require('react-dom'),
     domReady = require('domready'),
     Application = require('./components/application'),
     GoogleMaps = require('google-maps');
@@ -6,6 +7,6 @@ var React = require('react'),
 domReady(function () {
     GoogleMaps.LIBRARIES = ['places'];
     GoogleMaps.load(function (google) {
-        React.render(<Application mapService={google}/>, document.getElementById('app'));
+        ReactDOM.render(<Application mapService={google}/>, document.getElementById('app'));
     });
 });

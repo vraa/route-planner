@@ -1,35 +1,36 @@
 {
-    "name": "routeplanner",
-    "version": "1.0.0",
-    "description": "Google Maps Route Planner",
-    "main": "index.js",
-    "dependencies": {
-        "jquery": "*",
-        "backbone": "*",
-        "underscore": "*",
-        "react": "*",
-        "react-backbone": "*",
-        "react-mixin-manager": "*",
-        "google-maps": "*",
-        "domready": "*",
-        "promise": "*",
-        "classnames": "*",
-        "vent": "*"
-    },
-    "devDependencies": {
-        "grunt": "*",
-        "browserify": "*",
-        "grunt-browserify": "*",
-        "grunt-cli": "*",
-        "grunt-contrib-sass": "*",
-        "grunt-contrib-cssmin": "*",
-        "grunt-contrib-watch": "*",
-        "grunt-contrib-connect": "*",
-        "reactify": "*"
-    },
-    "scripts": {
-        "build": "grunt browserify:publish",
-        "dev": "watchify --ignore-watch=node_modules/** -v -d -t reactify src/js/index.js -o resources/js/routeplanner.js"
-    },
-    "author": "Veera"
+  "name": "routeplanner",
+  "version": "1.0.0",
+  "description": "Google Maps Route Planner",
+  "main": "index.js",
+  "dependencies": {
+    "backbone": "*",
+    "classnames": "^2.2.1",
+    "domready": "*",
+    "google-maps": "*",
+    "jquery": "*",
+    "promise": "*",
+    "react": "*",
+    "react-backbone": "*",
+    "react-dom": "*",
+    "react-mixin-manager": "*",
+    "underscore": "*",
+    "vent": "*"
+  },
+  "devDependencies": {
+    "grunt": "*",
+    "browserify": "*",
+    "grunt-browserify": "*",
+    "grunt-cli": "*",
+    "grunt-contrib-sass": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-connect": "*",
+    "reactify": "*"
+  },
+  "scripts": {
+    "build": "grunt browserify:publish",
+    "dev": "watchify --ignore-watch=node_modules/** -v -d -t reactify src/js/index.js -o resources/js/routeplanner.js"
+  },
+  "author": "Veera"
 }

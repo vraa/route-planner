@@ -1,4 +1,5 @@
-var React = require('react/addons'),
+var React = require('react'),
+    classNames = require('classnames'),
     RouteName = require('./route-name'),
     Dashboard = require('./dashboard'),
     WayPoint = require('./way-point'),
@@ -141,8 +142,7 @@ var RoutePlan = React.createClass({
                     </div>
                     );
             }),
-            cx = React.addons.classSet,
-            classes = cx({
+            classes = classNames({
                 'animated': this.state.routeChange || this.props.fadeOut,
                 'slideInLeft': this.state.routeChange && this.state.slideTo === 'left',
                 'slideInRight': this.state.routeChange && this.state.slideTo === 'right',
