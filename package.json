@@ -29,6 +29,7 @@
     "reactify": "*"
   },
   "scripts": {
+    "start" : "grunt connect",
     "build": "grunt browserify:publish",
     "dev": "watchify --ignore-watch=node_modules/** -v -d -t reactify src/js/index.js -o resources/js/routeplanner.js"
   },

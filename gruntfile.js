@@ -44,6 +44,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-browserify');
 
-    grunt.registerTask('default', ['browserify:publish']);
+    grunt.registerTask('default', ['sass','browserify:publish']);
 
 }
