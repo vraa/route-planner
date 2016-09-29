@@ -4,6 +4,9 @@
   "description": "Route Planner using Google Maps",
   "main": "index.js",
   "author": "Veera",
+  "scripts": {
+    "start": "webpack-dev-server --inline"
+  },
   "devDependencies": {
     "css-loader": "^0.23.1",
     "node-sass": "^3.7.0",
