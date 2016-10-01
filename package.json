@@ -5,14 +5,22 @@
   "main": "index.js",
   "author": "Veera",
   "scripts": {
-    "start": "webpack-dev-server --inline"
+    "start": "webpack-dev-server --inline --colors"
   },
   "devDependencies": {
-    "css-loader": "^0.23.1",
-    "node-sass": "^3.7.0",
-    "sass-loader": "^3.2.0",
-    "style-loader": "^0.13.1",
-    "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
+    "babel-core": "*",
+    "babel-loader": "*",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "css-loader": "*",
+    "node-sass": "*",
+    "sass-loader": "*",
+    "style-loader": "*",
+    "webpack": "*",
+    "webpack-dev-server": "*"
+  },
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
   }
 }
