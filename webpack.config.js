@@ -20,5 +20,6 @@ module.exports = {
                 loaders: ['style', 'css', 'sass']
             }
         ]
-    }
+    },
+    devtool: '#source-map'
 }
