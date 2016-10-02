@@ -32,23 +32,26 @@ class EditableText extends React.Component {
     }
 
     render() {
-        var elm;
+        var textInputElm;
 
-        var cx = classNames('editable-text', this.props.className);
+        var cx = classNames('editable-text', this.props.className, {editing: this.state.editing});
+
+        var cxLabel = classNames('text-label');
 
         if (this.state.editing) {
-            elm = <TextInput
+            textInputElm = <TextInput
                 value={this.state.value}
                 onSave={this.save.bind(this)}
                 onCancel={this.cancel.bind(this)}
             />
         } else {
-            elm = <p onClick={this.edit.bind(this)}>{this.state.value}</p>
+            textInputElm = <p className={cxLabel} onClick={this.edit.bind(this)}>{this.state.value}</p>
         }
+
 
         return (
             <div className={cx}>
-                {elm}
+                {textInputElm}
             </div>
         )
     }

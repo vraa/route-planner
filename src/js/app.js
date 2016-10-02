@@ -1,8 +1,9 @@
 var React = require('react');
-var EditableText = require('./components/core/editable-text');
 var {Provider} = require('react-redux');
 var {createStore} = require('redux');
 var appReducer = require('./reducers/app');
+
+var Route = require('./components/route');
 
 let store = createStore(appReducer);
 
@@ -12,7 +13,9 @@ class App extends React.Component {
         return (
             <Provider store={store}>
                 <div className="route-planner">
-                    <EditableText value="new text"/>
+
+                    <Route/>
+
                 </div>
             </Provider>
         )

@@ -44,12 +44,19 @@ class TextInput extends React.Component {
         this.props.onSave(this.state.value);
     }
 
+    focus(input) {
+        if(input != null) {
+            input.focus();
+        }
+    }
+
     render() {
         var cx = classNames('text-input', this.props.className);
         return (
             <div className={cx}>
                 <input type="text"
                        value={this.state.value}
+                       ref={this.focus}
                        onBlur={this.handleBlur.bind(this)}
                        onKeyDown={this.handleKeyDown.bind(this)}
                        onChange={this.handleChange.bind(this)}

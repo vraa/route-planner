@@ -9,10 +9,17 @@ body {
   padding: 5 * $pad;
 }
 
-.text-input {
+.editable-text {
 
-  input {
+  .text-input input {
     width: 100%;
+    border: none;
+    font: 1rem "Open Sans", Sans-Serif;
+
+    &:focus {
+      outline: none;
+    }
   }
 
 }
+
