@@ -7,6 +7,11 @@
       "from": "asap@>=2.0.3 <2.1.0",
       "resolved": "https://registry.npmjs.org/asap/-/asap-2.0.5.tgz"
     },
+    "classnames": {
+      "version": "2.2.5",
+      "from": "classnames@latest",
+      "resolved": "https://registry.npmjs.org/classnames/-/classnames-2.2.5.tgz"
+    },
     "encoding": {
       "version": "0.1.12",
       "from": "encoding@>=0.1.11 <0.2.0",
@@ -24,6 +29,11 @@
         }
       }
     },
+    "hoist-non-react-statics": {
+      "version": "1.2.0",
+      "from": "hoist-non-react-statics@>=1.0.3 <2.0.0",
+      "resolved": "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz"
+    },
     "iconv-lite": {
       "version": "0.4.13",
       "from": "iconv-lite@>=0.4.13 <0.5.0",
@@ -34,6 +44,11 @@
       "from": "immutable@>=3.7.6 <4.0.0",
       "resolved": "https://registry.npmjs.org/immutable/-/immutable-3.8.1.tgz"
     },
+    "invariant": {
+      "version": "2.2.1",
+      "from": "invariant@>=2.2.0 <3.0.0",
+      "resolved": "https://registry.npmjs.org/invariant/-/invariant-2.2.1.tgz"
+    },
     "is-stream": {
       "version": "1.1.0",
       "from": "is-stream@>=1.0.1 <2.0.0",
@@ -43,6 +58,16 @@
       "version": "2.2.1",
       "from": "isomorphic-fetch@>=2.1.1 <3.0.0",
       "resolved": "https://registry.npmjs.org/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz"
+    },
+    "lodash": {
+      "version": "4.16.2",
+      "from": "https://registry.npmjs.org/lodash/-/lodash-4.16.2.tgz",
+      "resolved": "https://registry.npmjs.org/lodash/-/lodash-4.16.2.tgz"
+    },
+    "lodash-es": {
+      "version": "4.16.2",
+      "from": "lodash-es@>=4.2.1 <5.0.0",
+      "resolved": "https://registry.npmjs.org/lodash-es/-/lodash-es-4.16.2.tgz"
     },
     "loose-envify": {
       "version": "1.2.0",
@@ -73,13 +98,28 @@
     },
     "react": {
       "version": "15.3.2",
-      "from": "react@latest",
+      "from": "https://registry.npmjs.org/react/-/react-15.3.2.tgz",
       "resolved": "https://registry.npmjs.org/react/-/react-15.3.2.tgz"
     },
     "react-dom": {
       "version": "15.3.2",
       "from": "react-dom@latest",
       "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-15.3.2.tgz"
+    },
+    "react-redux": {
+      "version": "4.4.5",
+      "from": "react-redux@latest",
+      "resolved": "https://registry.npmjs.org/react-redux/-/react-redux-4.4.5.tgz"
+    },
+    "redux": {
+      "version": "3.6.0",
+      "from": "redux@latest",
+      "resolved": "https://registry.npmjs.org/redux/-/redux-3.6.0.tgz"
+    },
+    "symbol-observable": {
+      "version": "1.0.2",
+      "from": "symbol-observable@>=1.0.2 <2.0.0",
+      "resolved": "https://registry.npmjs.org/symbol-observable/-/symbol-observable-1.0.2.tgz"
     },
     "ua-parser-js": {
       "version": "0.7.10",

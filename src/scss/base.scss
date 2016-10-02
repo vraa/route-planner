@@ -1,5 +1,18 @@
 @import "reset";
 
+$pad: 10px;
+
 body {
-  background-color: #FF4000;
+  background-color: #ffffff;
+  font: 1em "Open Sans", Sans-Serif;
+  color: #333333;
+  padding: 5 * $pad;
+}
+
+.text-input {
+
+  input {
+    width: 100%;
+  }
+
 }
