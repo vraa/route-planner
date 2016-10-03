@@ -1,7 +1,7 @@
 var React = require('react');
 var EditableText = require('./core/editable-text');
 var RouteInfo = require('./route-info');
-var WayPoint = require('./way-point');
+var WayPoints = require('../containers/way-points');
 
 class Route extends React.Component {
 
@@ -15,9 +15,7 @@ class Route extends React.Component {
             <div className={'route'}>
                 <EditableText value={'Route Name'}/>
                 <RouteInfo/>
-                <div className="way-points">
-                    <WayPoint/>
-                </div>
+                <WayPoints/>
             </div>
         )
 

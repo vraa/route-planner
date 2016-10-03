@@ -41,7 +41,7 @@
     },
     "immutable": {
       "version": "3.8.1",
-      "from": "immutable@>=3.7.6 <4.0.0",
+      "from": "https://registry.npmjs.org/immutable/-/immutable-3.8.1.tgz",
       "resolved": "https://registry.npmjs.org/immutable/-/immutable-3.8.1.tgz"
     },
     "invariant": {
