@@ -12,7 +12,7 @@ var Actions = {
     removeWayPoint: (id) => {
         return {
             type: ActionTypes.REMOVE_WAY_POINT,
-            pos: id
+            id: id
         }
     }
 

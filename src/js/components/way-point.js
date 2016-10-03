@@ -5,7 +5,7 @@ class WayPoint extends React.Component {
     render() {
         return (
             <div className="way-point">
-                <p>{this.props.name}</p>
+                <p>{this.props.name + '/' + this.props.id }</p>
                 <button onClick={this.props.onAdd}>add</button>
                 <button onClick={this.props.onRemove}>delete</button>
             </div>

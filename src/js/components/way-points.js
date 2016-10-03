@@ -12,9 +12,10 @@ class WayPoints extends React.Component {
                         return (
                             <li key={wp.id}>
                                 <WayPoint
+                                    id={wp.id}
                                     name={wp.name}
-                                    onAdd={this.props.onAdd.bind(wp.id)}
-                                    onRemove={this.props.onRemove.bind(wp.id)}
+                                    onAdd={this.props.onAdd.bind(this, wp.id)}
+                                    onRemove={this.props.onRemove.bind(this, wp.id)}
                                 />
                             </li>
                         )
