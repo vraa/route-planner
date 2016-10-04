@@ -2,7 +2,7 @@ var ActionTypes = require('../actions/types');
 var wayPoints = require('./way-points');
 
 var st = {
-    meta: 'data',
+    activeRoute: 1,
     routes: [
         {
             id: 1,
