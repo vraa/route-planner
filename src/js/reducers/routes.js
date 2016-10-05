@@ -7,7 +7,6 @@ var DEFAULTS = [
 ]
 
 const routes = (state = DEFAULTS, action) => {
-
     switch (action.type) {
         case ActionTypes.ADD_ROUTE:
             return [

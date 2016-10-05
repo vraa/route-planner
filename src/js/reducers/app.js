@@ -1,36 +1,20 @@
 var ActionTypes = require('../actions/types');
 var wayPoints = require('./way-points');
+var routes = require('./routes');
 
-var st = {
-    activeRoute: 1,
-    routes: [
-        {
-            id: 1,
-            name: 'Route 1',
-            wayPoints: [1, 2, 3]
-        },
-        {
-            id: 2,
-            name: 'Route 2',
-            wayPoints: []
-        }
-    ],
-    wayPoints: [
-        {
-            id: 1,
-            name: 'Way Point 1'
-        },
-        {
-            id: 2,
-            name: 'Way Point 2'
-        }
-    ]
+var DEFAULTS = {
+    routes: routes(undefined, ActionTypes.ADD_ROUTE)
 };
 
-const app = (state = {}, action) => {
+const app = (state = DEFAULTS, action) => {
 
     switch (action.type) {
 
+        case ActionTypes.ADD_ROUTE:
+            return Object.assign({}, state, {
+                routes: routes(state.routes, action)
+            });
+            break;
         case ActionTypes.ADD_WAY_POINT:
             return Object.assign({}, state, {
                 wayPoints: wayPoints(state.wayPoints, action)

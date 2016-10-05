@@ -10,10 +10,9 @@ class Route extends React.Component {
     }
 
     render() {
-
         return (
             <div className={'route'}>
-                <EditableText value={'Route Name'}/>
+                <EditableText value={''}/>
                 <RouteInfo/>
                 <WayPoints/>
             </div>
