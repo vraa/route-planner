@@ -16,6 +16,13 @@ var Actions = {
         }
     },
 
+    changeActiveRoute: (id) => {
+        return {
+            type: ActionTypes.CHANGE_ACTIVE_ROUTE,
+            id: id
+        }
+    },
+
     addWayPoint: (id) => {
         return {
             type: ActionTypes.ADD_WAY_POINT,
