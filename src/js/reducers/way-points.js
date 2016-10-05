@@ -2,10 +2,7 @@ var ActionTypes = require('../actions/types');
 var Actions = require('../actions');
 var wayPoint = require('./way-point');
 
-var DEFAULTS = [
-    wayPoint(undefined, Actions.addWayPoint(0)),
-    wayPoint(undefined, Actions.addWayPoint(0))
-];
+var DEFAULTS = [];
 
 const wayPoints = (state = DEFAULTS, action) => {
 
