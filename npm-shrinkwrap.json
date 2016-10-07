@@ -116,6 +116,11 @@
       "from": "redux@latest",
       "resolved": "https://registry.npmjs.org/redux/-/redux-3.6.0.tgz"
     },
+    "redux-saga": {
+      "version": "0.12.0",
+      "from": "redux-saga@latest",
+      "resolved": "https://registry.npmjs.org/redux-saga/-/redux-saga-0.12.0.tgz"
+    },
     "symbol-observable": {
       "version": "1.0.2",
       "from": "symbol-observable@>=1.0.2 <2.0.0",

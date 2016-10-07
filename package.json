@@ -26,6 +26,7 @@
     "react": "https://registry.npmjs.org/react/-/react-15.3.2.tgz",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "redux-saga": "^0.12.0"
   }
 }
