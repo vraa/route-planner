@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onAdd: (id) => {
-            dispatch(Actions.addWayPoint(id))
+            dispatch(Actions.addWayPointRequested(id))
         },
         onRemove: (id) => {
             dispatch(Actions.removeWayPoint(id))

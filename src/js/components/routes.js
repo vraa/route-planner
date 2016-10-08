@@ -10,7 +10,7 @@ class Routes extends React.Component {
 
     renderRouteTabs() {
         return (
-            <ul>
+            <ul className="tabs">
                 {
                     this.props.routes.map((r, idx) => {
                         return (

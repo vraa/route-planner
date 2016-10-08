@@ -1,9 +1,15 @@
-var ActionTypes = require('../actions/types');
-var wayPoints = require('./way-points');
-var routes = require('./routes');
+let AppSelectors = require('../selectors/app');
+let Actions = require('../actions');
+let ActionTypes = require('../actions/types');
+let wayPoints = require('./way-points');
+let routes = require('./routes');
+let route = require('./route');
 
-var DEFAULTS = {
-    routes: routes(undefined, ActionTypes.ADD_ROUTE)
+let defaultRoutes = routes(undefined, ActionTypes.ADD_ROUTE);
+let activeRouteID = defaultRoutes[0].id;
+let DEFAULTS = {
+    activeRouteID: activeRouteID,
+    routes: defaultRoutes
 };
 
 const app = (state = DEFAULTS, action) => {
@@ -14,12 +20,19 @@ const app = (state = DEFAULTS, action) => {
             return Object.assign({}, state, {
                 routes: routes(state.routes, action)
             });
-            break;
         case ActionTypes.ADD_WAY_POINT:
             return Object.assign({}, state, {
                 wayPoints: wayPoints(state.wayPoints, action)
             });
-            break;
+        case ActionTypes.ADD_WAY_POINT_TO_ROUTE:
+            return Object.assign({}, state, {
+                routes: state.routes.map((r)=> {
+                    if (r.id === state.activeRouteID) {
+                        return route(r, action);
+                    }
+                    return r;
+                })
+            });
         default:
             return Object.assign({}, state, {
                 wayPoints: wayPoints(state.wayPoints, action)

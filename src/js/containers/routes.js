@@ -4,14 +4,14 @@ var Routes = require('../components/routes');
 
 const getActiveRoute = (state) => {
     return state.routes.find((r) => {
-        return r.id === state.activeRoute;
+        return r.id === state.activeRouteID;
     });
 }
 
 const mapStateToProps = (state) => {
     return {
         routes: state.routes,
-        activeRoute: getActiveRoute(state) || state.routes[0]
+        activeRoute: undefined
     }
 };
 

@@ -1,8 +1,8 @@
-var ActionTypes = require('../actions/types');
-var Actions = require('../actions');
-var route = require('./route');
+let ActionTypes = require('../actions/types');
+let Actions = require('../actions');
+let route = require('./route');
 
-var DEFAULTS = [
+let DEFAULTS = [
     route(undefined, Actions.addRoute(0))
 ]
 
@@ -13,6 +13,8 @@ const routes = (state = DEFAULTS, action) => {
                 ...state,
                 route(undefined, action)
             ];
+        case  ActionTypes.ADD_WAY_POINT_TO_ROUTE:
+            return state;
         default:
             return state;
     }
