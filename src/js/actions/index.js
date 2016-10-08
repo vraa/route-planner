@@ -35,6 +35,14 @@ var Actions = {
         }
     },
 
+    changeRouteName: (routeID, newName) => {
+        return {
+            type: ActionTypes.CHANGE_ROUTE_NAME,
+            routeID,
+            newName
+        }
+    },
+
     addWayPointToRoute: (tgtWayPoint, newWayPoint) => {
         return {
             type: ActionTypes.ADD_WAY_POINT_TO_ROUTE,

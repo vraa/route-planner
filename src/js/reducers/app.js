@@ -41,6 +41,15 @@ const app = (state = DEFAULTS, action) => {
             return Object.assign({}, state, {
                 activeRouteID: action.id
             });
+        case ActionTypes.CHANGE_ROUTE_NAME:
+            return Object.assign({}, state, {
+                routes: state.routes.map((r) => {
+                    if (r.id === action.routeID) {
+                        return route(r, action);
+                    }
+                    return r;
+                })
+            });
         case ActionTypes.ADD_WAY_POINT:
             return Object.assign({}, state, {
                 wayPoints: wayPoints(state.wayPoints, action)

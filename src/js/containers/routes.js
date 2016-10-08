@@ -25,6 +25,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         onChangeRoute: (id) => {
             dispatch(Actions.changeActiveRoute(id))
+        },
+        onChangeRouteName: (routeId, newName) => {
+            dispatch(Actions.changeRouteName(routeId, newName))
         }
     }
 };

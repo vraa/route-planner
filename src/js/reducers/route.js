@@ -28,6 +28,10 @@ const route = (state = {}, action) => {
                     return wp !== action.wayPointID;
                 })
             });
+        case ActionTypes.CHANGE_ROUTE_NAME:
+            return Object.assign({}, state, {
+                name: action.newName
+            });
         default:
             return state;
     }

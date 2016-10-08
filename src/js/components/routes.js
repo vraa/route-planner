@@ -14,6 +14,10 @@ class Routes extends React.Component {
         this.props.onChangeRoute(id);
     }
 
+    handleChangeRouteName(routeId, newName) {
+        this.props.onChangeRouteName(routeId, newName);
+    }
+
     renderRouteTabs() {
         return (
             <ul className="tabs">
@@ -37,7 +41,10 @@ class Routes extends React.Component {
         return (
             <div className='routes'>
                 {this.renderRouteTabs()}
-                <Route route={this.props.activeRoute}/>
+                <Route
+                    route={this.props.activeRoute}
+                    onNameChange={this.handleChangeRouteName.bind(this)}
+                />
             </div>
         );
     }

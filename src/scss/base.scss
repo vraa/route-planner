@@ -24,11 +24,23 @@ body {
 }
 
 .routes .tabs {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 
   li {
     display: inline-block;
-    margin-right: 10px;
+    margin-right: $pad;
   }
+}
+
+.route .route-name {
+  margin-bottom: $pad;
+}
+
+.route .route-info {
+  margin-bottom: $pad;
+}
+
+.way-points li {
+  margin-bottom: $pad;
 }
 

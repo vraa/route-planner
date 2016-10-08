@@ -9,10 +9,27 @@ class Route extends React.Component {
         super(props);
     }
 
+    handleRouteNameChange(newName) {
+        this.props.onNameChange(this.props.route.id, newName);
+    }
+
+
+    renderRouteName() {
+        var route = this.props.route;
+        return (
+            <div className="route-name">
+                <EditableText
+                    onSave={this.handleRouteNameChange.bind(this)}
+                    value={route.name}/>
+            </div>
+        )
+    }
+
     render() {
+        var route = this.props.route;
         return (
             <div className={'route'}>
-                <EditableText value={''}/>
+                {this.renderRouteName()}
                 <RouteInfo/>
                 <WayPoints/>
             </div>
