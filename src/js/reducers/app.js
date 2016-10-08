@@ -6,7 +6,7 @@ let routes = require('./routes');
 let route = require('./route');
 
 let defaultRoutes = routes(undefined, ActionTypes.ADD_ROUTE);
-let activeRouteID = defaultRoutes[0].id;
+let activeRouteID = defaultRoutes.first().id;
 let DEFAULTS = {
     activeRouteID: activeRouteID,
     routes: defaultRoutes
