@@ -3,15 +3,12 @@ var WayPoint = require('./way-point');
 
 class WayPoints extends React.Component {
 
-    renderAddWayPoints() {
-
-    }
 
     renderWayPoints() {
         return (
             <ul className='way-points'>
                 {
-                    this.props.wayPoints.map((wp, idx) => {
+                    this.props.wayPoints.map((wp) => {
                         return (
                             <li key={wp.id}>
                                 <WayPoint

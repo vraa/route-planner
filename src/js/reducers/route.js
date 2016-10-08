@@ -22,7 +22,12 @@ const route = (state = {}, action) => {
             return Object.assign({}, state, {
                 wayPoints: wayPoints
             });
-
+        case ActionTypes.REMOVE_WAY_POINT_FROM_ROUTE:
+            return Object.assign({}, state, {
+                wayPoints: state.wayPoints.filter((wp)=> {
+                    return wp !== action.wayPointID;
+                })
+            });
         default:
             return state;
     }

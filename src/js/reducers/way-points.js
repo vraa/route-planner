@@ -17,8 +17,6 @@ const wayPoints = (state = DEFAULTS, action) => {
             return state.filter((wp)=> {
                 return wp.id != action.id
             });
-
-            break;
         default:
             return state;
     }

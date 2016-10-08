@@ -12,7 +12,10 @@ const getWayPointsToShow = (state) => {
         return [];
     } else {
         activeWayPointsIDs.forEach((wpID) => {
-            wayPoints.push(state.wayPoints.find((wp) => wp.id === wpID));
+            let wp = state.wayPoints.find((wp) => wp.id === wpID);
+            if (wp) {
+                wayPoints.push(wp);
+            }
         });
 
         return wayPoints;
@@ -31,7 +34,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(Actions.addWayPointRequested(id))
         },
         onRemove: (id) => {
-            dispatch(Actions.removeWayPoint(id))
+            dispatch(Actions.removeWayPointRequested(id))
         }
     }
 };

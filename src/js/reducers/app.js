@@ -15,15 +15,11 @@ let DEFAULTS = {
 const app = (state = DEFAULTS, action) => {
 
     switch (action.type) {
-
         case ActionTypes.ADD_ROUTE:
             return Object.assign({}, state, {
                 routes: routes(state.routes, action)
             });
-        case ActionTypes.ADD_WAY_POINT:
-            return Object.assign({}, state, {
-                wayPoints: wayPoints(state.wayPoints, action)
-            });
+
         case ActionTypes.ADD_WAY_POINT_TO_ROUTE:
             return Object.assign({}, state, {
                 routes: state.routes.map((r)=> {
@@ -33,10 +29,26 @@ const app = (state = DEFAULTS, action) => {
                     return r;
                 })
             });
-        default:
+        case ActionTypes.REMOVE_WAY_POINT_FROM_ROUTE:
+            return Object.assign({}, state, {
+                routes: state.routes.map((r)=> {
+                    if(r.id === state.activeRouteID) {
+                        return route(r, action);
+                    }
+                    return r;
+                })
+            });
+        case ActionTypes.ADD_WAY_POINT:
             return Object.assign({}, state, {
                 wayPoints: wayPoints(state.wayPoints, action)
             });
+        case ActionTypes.REMOVE_WAY_POINT:
+            return Object.assign({}, state, {
+                wayPoints: wayPoints(state.wayPoints, action)
+            });
+
+        default:
+            return state;
     }
 }
 

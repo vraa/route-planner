@@ -45,7 +45,7 @@ class TextInput extends React.Component {
     }
 
     focus(input) {
-        if(input != null) {
+        if (input != null) {
             input.focus();
         }
     }
@@ -71,7 +71,6 @@ TextInput.defaultProps = {
     onSave: ()=> {
     },
     onCancel: (oldValue)=> {
-        console.log('resetting to', oldValue);
     }
 };
 

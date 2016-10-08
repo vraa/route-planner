@@ -10,8 +10,17 @@ function* addWayPoint(action) {
     yield put(Actions.addWayPointToRoute(action.id, newWayPoint.id));
 }
 
+function* removeWayPoint(action) {
+    yield put(Actions.removeWayPointFromRoute(action.id));
+    yield put(Actions.removeWayPoint(action.id));
+}
+
 function* rootSaga() {
-    yield* takeEvery(ActionTypes.ADD_WAY_POINT_REQUESTED, addWayPoint);
+    yield* [
+        takeEvery(ActionTypes.ADD_WAY_POINT_REQUESTED, addWayPoint),
+        takeEvery(ActionTypes.REMOVE_WAY_POINT_REQUESTED, removeWayPoint)
+    ];
+
 }
 
 module.exports = rootSaga;

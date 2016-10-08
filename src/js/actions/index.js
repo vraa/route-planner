@@ -31,10 +31,10 @@ var Actions = {
         }
     },
 
-    addWayPointRequested: (id) => {
+    removeWayPointFromRoute: (wayPointID) => {
         return {
-            type: ActionTypes.ADD_WAY_POINT_REQUESTED,
-            id
+            type: ActionTypes.REMOVE_WAY_POINT_FROM_ROUTE,
+            wayPointID
         }
     },
 
@@ -45,9 +45,23 @@ var Actions = {
         }
     },
 
+    addWayPointRequested: (id) => {
+        return {
+            type: ActionTypes.ADD_WAY_POINT_REQUESTED,
+            id
+        }
+    },
+
     removeWayPoint: (id) => {
         return {
             type: ActionTypes.REMOVE_WAY_POINT,
+            id
+        }
+    },
+
+    removeWayPointRequested: (id) => {
+        return {
+            type: ActionTypes.REMOVE_WAY_POINT_REQUESTED,
             id
         }
     }
