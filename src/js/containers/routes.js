@@ -6,12 +6,12 @@ const getActiveRoute = (state) => {
     return state.routes.find((r) => {
         return r.id === state.activeRouteID;
     });
-}
+};
 
 const mapStateToProps = (state) => {
     return {
         routes: state.routes,
-        activeRoute: undefined
+        activeRoute: getActiveRoute(state)
     }
 };
 

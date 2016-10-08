@@ -14,10 +14,9 @@ class WayPoints extends React.Component {
                     this.props.wayPoints.map((wp, idx) => {
                         return (
                             <li key={wp.id}>
-                                <p>{idx}</p>
                                 <WayPoint
                                     id={wp.id}
-                                    name={wp.name + wp.id}
+                                    name={wp.id}
                                     onAdd={this.props.onAdd.bind(this, wp.id)}
                                     onRemove={this.props.onRemove.bind(this, wp.id)}
                                 />

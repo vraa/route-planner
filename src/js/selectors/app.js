@@ -9,7 +9,6 @@ var AppSelectors = {
 
     activeRoute: (state) => {
         let activeRouteID = state.activeRouteID;
-        let routes = state.routes;
         return state.routes.find((r) => r.id === activeRouteID);
     },
 
