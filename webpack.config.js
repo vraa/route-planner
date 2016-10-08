@@ -1,5 +1,5 @@
 module.exports = {
-    entry: './src/js/main.js',
+    entry: ['babel-polyfill', './src/js/main.js'],
     output: {
         path: './resources/js',
         filename: 'bundle.js',
@@ -22,4 +22,4 @@ module.exports = {
         ]
     },
     devtool: '#source-map'
-}
+};
