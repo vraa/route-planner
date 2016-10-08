@@ -1,11 +1,17 @@
 var React = require('react');
+var Link = require('./core/link');
 var Route = require('./route');
+
 
 class Routes extends React.Component {
 
     handleAddRoute(e) {
         e.preventDefault();
         this.props.onAdd();
+    }
+
+    handleChangeRoute(id) {
+        this.props.onChangeRoute(id);
     }
 
     renderRouteTabs() {
@@ -15,7 +21,7 @@ class Routes extends React.Component {
                     this.props.routes.map((r, idx) => {
                         return (
                             <li key={r.id}>
-                                <a href="#">{idx + 1}</a>
+                                <Link onClick={this.handleChangeRoute.bind(this, r.id)}>{idx + 1}</Link>
                             </li>
                         )
                     })

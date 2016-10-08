@@ -2,16 +2,28 @@ var ActionTypes = require('./types');
 
 var Actions = {
 
-    addRoute: (id) => {
+    addRoute: () => {
         return {
             type: ActionTypes.ADD_ROUTE,
-            id
+        }
+    },
+
+    addRouteRequested: () => {
+        return {
+            type: ActionTypes.ADD_ROUTE_REQUESTED,
         }
     },
 
     removeRoute: (id) => {
         return {
             type: ActionTypes.REMOVE_ROUTE,
+            id
+        }
+    },
+
+    removeRouteRequested: (id) => {
+        return {
+            type: ActionTypes.REMOVE_ROUTE_REQUESTED,
             id
         }
     },

@@ -18,10 +18,13 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onAdd: () => {
-            dispatch(Actions.addRoute())
+            dispatch(Actions.addRouteRequested())
         },
         onRemove: (id) => {
             dispatch(Actions.removeRoute(id))
+        },
+        onChangeRoute: (id) => {
+            dispatch(Actions.changeActiveRoute(id))
         }
     }
 };
