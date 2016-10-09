@@ -2,6 +2,7 @@ let AppSelectors = require('../selectors/app');
 let Actions = require('../actions');
 let ActionTypes = require('../actions/types');
 let wayPoints = require('./way-points');
+let wayPoint = require('./way-point');
 let routes = require('./routes');
 let route = require('./route');
 
@@ -50,13 +51,20 @@ const app = (state = DEFAULTS, action) => {
                     return r;
                 })
             });
+
         case ActionTypes.ADD_WAY_POINT:
-            return Object.assign({}, state, {
-                wayPoints: wayPoints(state.wayPoints, action)
-            });
         case ActionTypes.REMOVE_WAY_POINT:
             return Object.assign({}, state, {
                 wayPoints: wayPoints(state.wayPoints, action)
+            });
+        case ActionTypes.CHANGE_WAY_POINT_NAME:
+            return Object.assign({}, state, {
+                wayPoints: state.wayPoints.map((wp)=> {
+                    if (wp.id === action.wayPointID) {
+                        return wayPoint(wp, action);
+                    }
+                    return wp;
+                })
             });
         default:
             return state;

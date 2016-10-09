@@ -8,7 +8,10 @@ const wayPoint = (state = {}, action) => {
                 id: util.guid(),
                 name: 'Enter a way point'
             };
-            break;
+        case ActionTypes.CHANGE_WAY_POINT_NAME:
+            return Object.assign({}, state, {
+                name: action.newName
+            });
         default:
             return state;
     }

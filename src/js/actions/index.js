@@ -84,6 +84,14 @@ var Actions = {
             type: ActionTypes.REMOVE_WAY_POINT_REQUESTED,
             id
         }
+    },
+
+    changeWayPointName: (wayPointID, newName) => {
+        return {
+            type: ActionTypes.CHANGE_WAY_POINT_NAME,
+            wayPointID,
+            newName
+        }
     }
 
 };

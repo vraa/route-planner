@@ -3,6 +3,10 @@ var WayPoint = require('./way-point');
 
 class WayPoints extends React.Component {
 
+    handleChangeWayPointName(wayPointID, newName) {
+        this.props.onChangeWayPointName(wayPointID, newName);
+    }
+
 
     renderWayPoints() {
         return (
@@ -12,10 +16,10 @@ class WayPoints extends React.Component {
                         return (
                             <li key={wp.id}>
                                 <WayPoint
-                                    id={wp.id}
-                                    name={wp.name}
+                                    wayPoint={wp}
                                     onAdd={this.props.onAdd.bind(this, wp.id)}
                                     onRemove={this.props.onRemove.bind(this, wp.id)}
+                                    onNameChange={this.handleChangeWayPointName.bind(this)}
                                 />
                             </li>
                         )
