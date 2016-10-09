@@ -11,42 +11,31 @@ class TextInput extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            oldValue: this.props.value,
-            value: this.props.value
-        };
     }
 
     handleKeyDown(e) {
         switch (e.which) {
             case KEYS.ENTER:
             case KEYS.TAB:
-                this.props.onSave(this.state.value);
+                this.props.onSave(e.target.value);
                 break;
             case KEYS.ESC:
-                this.setState({
-                    value: this.state.oldValue
-                }, function () {
-                    this.props.onCancel(this.state.oldValue);
-                });
+                this.props.onCancel(this.props.oldValue);
             default:
 
         }
     }
 
-    handleChange(e) {
-        this.setState({
-            value: e.target.value
-        })
-    }
-
-    handleBlur() {
-        this.props.onSave(this.state.value);
+    handleBlur(e) {
+        this.props.onSave(e.target.value);
     }
 
     focus(input) {
         if (input != null) {
             input.focus();
+        }
+        if (this.props.domElm) {
+            this.props.domElm(input);
         }
     }
 
@@ -55,11 +44,10 @@ class TextInput extends React.Component {
         return (
             <div className={cx}>
                 <input type="text"
-                       value={this.state.value}
-                       ref={this.focus}
+                       defaultValue={this.props.value}
+                       ref={this.focus.bind(this)}
                        onBlur={this.handleBlur.bind(this)}
                        onKeyDown={this.handleKeyDown.bind(this)}
-                       onChange={this.handleChange.bind(this)}
                 />
             </div>
         )
