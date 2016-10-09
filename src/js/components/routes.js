@@ -42,6 +42,7 @@ class Routes extends React.Component {
             <div className='routes'>
                 {this.renderRouteTabs()}
                 <Route
+                    mapService={this.props.mapService}
                     route={this.props.activeRoute}
                     onNameChange={this.handleChangeRouteName.bind(this)}
                 />

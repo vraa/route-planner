@@ -8,10 +8,12 @@ const getActiveRoute = (state) => {
     });
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+
     return {
         routes: state.routes,
-        activeRoute: getActiveRoute(state)
+        activeRoute: getActiveRoute(state),
+        mapService: ownProps.mapService
     }
 };
 

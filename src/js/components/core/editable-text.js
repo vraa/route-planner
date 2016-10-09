@@ -39,6 +39,7 @@ class EditableText extends React.Component {
 
         if (this.state.editing) {
             textInputElm = <TextInput
+                domElm={this.props.domElm}
                 value={this.props.value}
                 onSave={this.save.bind(this)}
                 onCancel={this.cancel.bind(this)}

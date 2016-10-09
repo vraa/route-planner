@@ -18,7 +18,7 @@ class App extends React.Component {
             <Provider store={store}>
                 <div className="route-planner">
 
-                    <Routes/>
+                    <Routes mapService={this.props.mapService}/>
 
                 </div>
             </Provider>

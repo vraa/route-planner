@@ -16,6 +16,7 @@ class WayPoints extends React.Component {
                         return (
                             <li key={wp.id}>
                                 <WayPoint
+                                    mapService={this.props.mapService}
                                     wayPoint={wp}
                                     onAdd={this.props.onAdd.bind(this, wp.id)}
                                     onRemove={this.props.onRemove.bind(this, wp.id)}
