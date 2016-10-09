@@ -20,15 +20,11 @@ const app = (state = DEFAULTS, action) => {
             return Object.assign({}, state, {
                 routes: routes(state.routes, action)
             });
-        case ActionTypes.ADD_WAY_POINT_TO_ROUTE:
+        case ActionTypes.CHANGE_ACTIVE_ROUTE:
             return Object.assign({}, state, {
-                routes: state.routes.map((r)=> {
-                    if (r.id === state.activeRouteID) {
-                        return route(r, action);
-                    }
-                    return r;
-                })
+                activeRouteID: action.id
             });
+        case ActionTypes.ADD_WAY_POINT_TO_ROUTE:
         case ActionTypes.REMOVE_WAY_POINT_FROM_ROUTE:
             return Object.assign({}, state, {
                 routes: state.routes.map((r)=> {
@@ -38,10 +34,7 @@ const app = (state = DEFAULTS, action) => {
                     return r;
                 })
             });
-        case ActionTypes.CHANGE_ACTIVE_ROUTE:
-            return Object.assign({}, state, {
-                activeRouteID: action.id
-            });
+        case ActionTypes.API_FETCH_ROUTES_SUCCEEDED:
         case ActionTypes.CHANGE_ROUTE_NAME:
             return Object.assign({}, state, {
                 routes: state.routes.map((r) => {

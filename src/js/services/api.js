@@ -30,7 +30,10 @@ var API = {
 
                 directionsService.route(request, (response, status) => {
                     if (status === 'OK') {
-                        resolve(response);
+                        resolve({
+                            response,
+                            status
+                        });
                     } else {
                         reject(status);
                     }

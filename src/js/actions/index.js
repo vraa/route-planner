@@ -105,8 +105,19 @@ var Actions = {
 
     API: {
         fetchRoutes: () => {
-            console.log('About to fetch route details');
+            return {
+                type: ActionTypes.API_FETCH_ROUTES
+            }
+        },
+
+        fetchRoutesSucceeded: (routeID, routes) => {
+            return {
+                type: ActionTypes.API_FETCH_ROUTES_SUCCEEDED,
+                routeID,
+                routes
+            }
         }
+
     }
 
 };

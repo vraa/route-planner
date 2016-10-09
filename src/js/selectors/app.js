@@ -21,6 +21,10 @@ var AppSelectors = {
         }
     },
 
+    activeRouteID: (state) => {
+        return state.activeRouteID;
+    },
+
     activeRoute: (state) => {
         let activeRouteID = state.activeRouteID;
         return state.routes.find((r) => r.id === activeRouteID);

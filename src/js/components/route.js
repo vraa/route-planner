@@ -30,7 +30,7 @@ class Route extends React.Component {
         return (
             <div className={'route'}>
                 {this.renderRouteName()}
-                <RouteInfo/>
+                <RouteInfo route={route}/>
                 <WayPoints mapService={this.props.mapService}/>
             </div>
         )

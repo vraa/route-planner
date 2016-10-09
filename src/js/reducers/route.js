@@ -32,6 +32,10 @@ const route = (state = {}, action) => {
             return Object.assign({}, state, {
                 name: action.newName
             });
+        case ActionTypes.API_FETCH_ROUTES_SUCCEEDED:
+            return Object.assign({}, state, {
+                directions: action.routes
+            });
         default:
             return state;
     }

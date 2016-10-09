@@ -5,7 +5,7 @@ let ActionTypes = require('../actions/types');
 let AppSelectors = require('../selectors/app');
 let APIService = require('../services/api');
 
-function* addRoute(action) {
+function* addRoute() {
     yield put(Actions.addRoute());
     let newRoute = yield select(AppSelectors.recentlyAddedRoute);
     yield put(Actions.changeActiveRoute(newRoute.id));
@@ -22,11 +22,18 @@ function* removeWayPoint(action) {
     yield put(Actions.removeWayPoint(action.id));
 }
 
+function* fetchDirections(action) {
+    let activeRouteID = yield select(AppSelectors.activeRouteID);
+    let activeWayPoints = yield select(AppSelectors.activeWayPoints);
+    let data = yield call(APIService.fetchRoutes, activeWayPoints, action.mapService);
+    if (data && data.status === 'OK') {
+        yield put(Actions.API.fetchRoutesSucceeded(activeRouteID, data.response.routes));
+    }
+}
+
 function* changeWayPointName(action) {
     yield put(Actions.changeWayPointName(action.wayPointID, action.newName));
-    let activeWayPoints = yield select(AppSelectors.activeWayPoints);
-    let res = yield call(APIService.fetchRoutes, activeWayPoints, action.mapService);
-    console.log(res);
+    yield* fetchDirections(action);
 }
 
 function* rootSaga() {
