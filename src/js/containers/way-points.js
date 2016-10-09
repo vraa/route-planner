@@ -25,7 +25,8 @@ const getWayPointsToShow = (state) => {
 const mapStateToProps = (state, ownProps) => {
     return {
         wayPoints: getWayPointsToShow(state),
-        mapService: ownProps.mapService
+        mapService: ownProps.mapService,
+        route: ownProps.route
     }
 };
 

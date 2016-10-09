@@ -1,5 +1,6 @@
 var React = require('react');
 var WayPoint = require('./way-point');
+var WayPointInfo = require('./way-point-info');
 
 class WayPoints extends React.Component {
 
@@ -7,12 +8,25 @@ class WayPoints extends React.Component {
         this.props.onChangeWayPointName(wayPointID, newName);
     }
 
+    renderWayPointInfo(wpIdx) {
+        let directions = this.props.route.directions;
+        if (directions) {
+            let direction = directions[0];
+            let legs = direction.legs;
+            let leg = legs[wpIdx];
+            if (leg) {
+                return (
+                    <WayPointInfo distance={leg.distance.text} duration={leg.duration.text}/>
+                );
+            }
+        }
+    }
 
     renderWayPoints() {
         return (
             <ul className='way-points'>
                 {
-                    this.props.wayPoints.map((wp) => {
+                    this.props.wayPoints.map((wp, idx) => {
                         return (
                             <li key={wp.id}>
                                 <WayPoint
@@ -22,6 +36,7 @@ class WayPoints extends React.Component {
                                     onRemove={this.props.onRemove.bind(this, wp.id)}
                                     onNameChange={this.handleChangeWayPointName.bind(this)}
                                 />
+                                {this.renderWayPointInfo(idx)}
                             </li>
                         )
                     })
