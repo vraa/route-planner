@@ -29,6 +29,11 @@
         }
       }
     },
+    "google-maps": {
+      "version": "3.2.1",
+      "from": "google-maps@latest",
+      "resolved": "https://registry.npmjs.org/google-maps/-/google-maps-3.2.1.tgz"
+    },
     "hoist-non-react-statics": {
       "version": "1.2.0",
       "from": "hoist-non-react-statics@>=1.0.3 <2.0.0",
