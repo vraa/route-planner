@@ -12,6 +12,11 @@
       "from": "classnames@latest",
       "resolved": "https://registry.npmjs.org/classnames/-/classnames-2.2.5.tgz"
     },
+    "domready": {
+      "version": "1.0.8",
+      "from": "domready@latest",
+      "resolved": "https://registry.npmjs.org/domready/-/domready-1.0.8.tgz"
+    },
     "encoding": {
       "version": "0.1.12",
       "from": "encoding@>=0.1.11 <0.2.0",
