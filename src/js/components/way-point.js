@@ -29,7 +29,6 @@ class WayPoint extends React.Component {
     }
 
     render() {
-        console.log(this.props);
         return (
             <div className="way-point">
                 {this.renderWayPointName()}

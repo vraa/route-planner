@@ -29,7 +29,7 @@ const mapStateToProps = (state, ownProps) => {
     }
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         onAdd: (id) => {
             dispatch(Actions.addWayPointRequested(id));
@@ -38,7 +38,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(Actions.removeWayPointRequested(id));
         },
         onChangeWayPointName: (wayPointID, newName) => {
-            dispatch(Actions.changeWayPointName(wayPointID, newName));
+            dispatch(Actions.changeWayPointNameRequested(wayPointID, newName, ownProps.mapService));
         }
     }
 };

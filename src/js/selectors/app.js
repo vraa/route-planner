@@ -24,6 +24,22 @@ var AppSelectors = {
     activeRoute: (state) => {
         let activeRouteID = state.activeRouteID;
         return state.routes.find((r) => r.id === activeRouteID);
+    },
+
+    activeWayPoints: (state) => {
+        let wayPoints = [];
+        let activeRouteID = state.activeRouteID;
+        let activeRoute = state.routes.find((r)=>r.id === activeRouteID);
+
+        if (activeRoute) {
+            activeRoute.wayPoints.forEach((wpID)=> {
+                let wayPoint = state.wayPoints.find((wp) => wp.id === wpID);
+                if (wayPoint) {
+                    wayPoints.push(wayPoint);
+                }
+            });
+        }
+        return wayPoints;
     }
 
 

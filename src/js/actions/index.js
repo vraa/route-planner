@@ -92,6 +92,21 @@ var Actions = {
             wayPointID,
             newName
         }
+    },
+
+    changeWayPointNameRequested: (wayPointID, newName, mapService) => {
+        return {
+            type: ActionTypes.CHANGE_WAY_POINT_NAME_REQUESTED,
+            wayPointID,
+            newName,
+            mapService
+        }
+    },
+
+    API: {
+        fetchRoutes: () => {
+            console.log('About to fetch route details');
+        }
     }
 
 };
