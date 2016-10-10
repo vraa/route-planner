@@ -15,9 +15,11 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "css-loader": "*",
+    "file-loader": "^0.9.0",
     "node-sass": "*",
     "sass-loader": "*",
     "style-loader": "*",
+    "url-loader": "^0.5.7",
     "webpack": "*",
     "webpack-dev-server": "*"
   },
