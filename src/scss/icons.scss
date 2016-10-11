@@ -24,31 +24,30 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-directions_run:before {
+  content: "\e900";
+}
+.icon-clock:before {
+  content: "\e014";
+}
 .icon-disc:before {
   content: "\e019";
 }
-
 .icon-map:before {
   content: "\e072";
 }
-
 .icon-flag:before {
   content: "\e108";
 }
-
 .icon-trash:before {
   content: "\e109";
 }
-
 .icon-plus:before {
   content: "\e114";
 }
-
 .icon-minus:before {
   content: "\e115";
 }
-
 .icon-cross:before {
   content: "\e117";
 }
-
