@@ -4,9 +4,15 @@
 $pad: 10px;
 
 body {
-  background-color: #ffffff;
+  background-color: #ECF0F1;
   font: 1em "Open Sans", Sans-Serif;
   color: #333333;
+}
+
+.app {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #ffffff;
 }
 
 .editable-text {
@@ -21,6 +27,12 @@ body {
     }
   }
 
+  .text-label {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
 }
 
 .routes .tabs {
@@ -32,14 +44,18 @@ body {
   }
 }
 
+.route {
+  min-height: 800px;
+}
+
 .route .route-name {
   margin-bottom: $pad;
 }
 
 .route .route-info {
   height: 250px;
-  background-color: #19B5FE;
-  color: #ffffff;
+  background-color: #22A7F0;
+  color: yellow;
   position: relative;
   font-weight: 300;
   overflow: hidden;
@@ -54,9 +70,10 @@ $size: 400px;
     left: 50%;
     height: $size;
     width: $size;
-    border: 2px solid #ffffff;
+    border: 5px solid #ffffff;
     border-radius: 50%;
     transform: translateX(-50%) translateY(-50%);
+    box-shadow: 0 0 100px #ffffff;
   }
 
   .wrap-in {
@@ -69,7 +86,7 @@ $size: 400px;
   }
 
   .distance {
-    border-bottom: 1px solid #ffffff;
+    border-bottom: 1px solid darken(#22A7F0, 10%);
     padding-bottom: 2 * $pad;
     margin-bottom: 2 * $pad;
 
@@ -96,14 +113,20 @@ $size: 400px;
     font-size: .9rem;
     text-transform: uppercase;
     letter-spacing: 2pt;
+    color: #ffffff;
+  }
+
+  .value {
+    text-shadow: 0 0 10px #666;
   }
 
 }
 
 $textColor: #333333;
 
-.way-points {
-  padding: $pad;
+ul.way-points {
+  margin: 2 * $pad;
+  position: relative;
 
   a {
     text-decoration: none;
@@ -114,29 +137,62 @@ $textColor: #333333;
   }
 
   &.empty a {
-    margin-left: 30px;
+    margin-left: 15px;
   }
 
   li {
     margin-bottom: 2 * $pad;
     position: relative;
+    z-index: 10;
 
     .way-point-icon {
       position: absolute;
-      top:0;
+      top: 0;
       left: 0;
+      color: #19B5FE;
+      z-index: 10;
+    }
+
+    &:first-child .way-point-icon {
+      color: #2ECC71;
+    }
+
+    &:last-child .way-point-icon {
+      color: #CF000F;
     }
   }
 
-  .way-point-info {
-    margin-top: 2 * $pad;
-    margin-left: 4 * $pad;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 8px;
+    height: 100%;
+    width: 1px;
+    border-left: 1px dashed #ddd;
+    z-index: 5;
+  }
+
+  &.empty:before {
+    content: none;
+  }
+}
+
+.way-point-info {
+  margin-top: 2 * $pad;
+  margin-left: 4 * $pad;
+  font-size: .8rem;
+  color: #999999;
+
+  .distance {
+    margin-right: 2 * $pad;
   }
 }
 
 .way-point {
   position: relative;
   padding-left: 30px;
+  background-color: #ffffff;
 
   .way-point-name {
     padding-right: 50px;
