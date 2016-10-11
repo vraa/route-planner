@@ -11,8 +11,28 @@ body {
 
 .app {
   max-width: 500px;
-  margin: 0 auto;
-  background-color: #ffffff;
+  margin: 2* $pad auto 0 auto;
+}
+
+.app-name {
+  font-weight: 300;
+  font-size: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: #999999;
+}
+
+.author {
+  margin: $pad 0;
+  font-size: .8rem;
+  color: #aaaaaa;
+  text-align: center;
+
+  a {
+    &:link, &:hover, &:visited, &:active {
+      color: #aaaaaa;
+    }
+  }
 }
 
 .editable-text {
@@ -46,6 +66,7 @@ body {
 
 .route {
   min-height: 800px;
+  background-color: #ffffff;
 }
 
 .route .route-name {
