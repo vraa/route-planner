@@ -1,5 +1,6 @@
 var React = require('react');
 var EditableText = require('./core/editable-text');
+var Link = require('./core/link');
 
 class WayPoint extends React.Component {
 
@@ -21,6 +22,7 @@ class WayPoint extends React.Component {
         return (
             <div className="way-point-name">
                 <EditableText
+                    placeholder="Start typing a place name"
                     domElm={this.cacheWayPointDomElm.bind(this)}
                     onSave={this.handleWayPointNameChange.bind(this)}
                     value={this.props.wayPoint.name}/>
@@ -32,8 +34,10 @@ class WayPoint extends React.Component {
         return (
             <div className="way-point">
                 {this.renderWayPointName()}
-                <button onClick={this.props.onAdd}>add</button>
-                <button onClick={this.props.onRemove}>delete</button>
+                <div className="cta">
+                    <Link onClick={this.props.onAdd}><i className="icon-plus"></i></Link>
+                    <Link onClick={this.props.onRemove}><i className="icon-minus"></i></Link>
+                </div>
             </div>
         )
     }

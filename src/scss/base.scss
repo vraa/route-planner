@@ -1,4 +1,5 @@
 @import "reset";
+@import "icons";
 
 $pad: 10px;
 
@@ -6,7 +7,6 @@ body {
   background-color: #ffffff;
   font: 1em "Open Sans", Sans-Serif;
   color: #333333;
-  padding: 1 * $pad;
 }
 
 .editable-text {
@@ -37,10 +37,123 @@ body {
 }
 
 .route .route-info {
-  margin-bottom: $pad;
+  height: 250px;
+  background-color: #19B5FE;
+  color: #ffffff;
+  position: relative;
+  font-weight: 300;
+  overflow: hidden;
 }
 
-.way-points li {
-  margin-bottom: $pad;
+$size: 400px;
+
+.route-info {
+  .wrap-out {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: $size;
+    width: $size;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  .wrap-in {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+  }
+
+  .distance {
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 2 * $pad;
+    margin-bottom: 2 * $pad;
+
+    .value {
+      font-size: 2rem;
+    }
+  }
+
+  .duration {
+    li {
+      display: inline-block;
+      margin-right: 2 * $pad;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    .value {
+      font-size: 2rem;
+    }
+  }
+
+  .unit {
+    font-size: .9rem;
+    text-transform: uppercase;
+    letter-spacing: 2pt;
+  }
+
 }
 
+$textColor: #333333;
+
+.way-points {
+  padding: $pad;
+
+  a {
+    text-decoration: none;
+    border-bottom: 1px solid #19B5FE;
+    &:link, &:hover, &:visited, &:active {
+      color: $textColor;
+    }
+  }
+
+  &.empty a {
+    margin-left: 30px;
+  }
+
+  li {
+    margin-bottom: 2 * $pad;
+    position: relative;
+
+    .way-point-icon {
+      position: absolute;
+      top:0;
+      left: 0;
+    }
+  }
+
+  .way-point-info {
+    margin-top: 2 * $pad;
+    margin-left: 4 * $pad;
+  }
+}
+
+.way-point {
+  position: relative;
+  padding-left: 30px;
+
+  .way-point-name {
+    padding-right: 50px;
+    text-overflow: ellipsis;
+  }
+
+  .cta {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translateY(-50%);
+
+    a {
+      text-align: center;
+      border-bottom: none;
+      margin-left: 2 * $pad;
+      display: inline-block;
+    }
+  }
+}

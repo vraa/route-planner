@@ -40,7 +40,6 @@ class Routes extends React.Component {
     render() {
         return (
             <div className='routes'>
-                {this.renderRouteTabs()}
                 <Route
                     mapService={this.props.mapService}
                     route={this.props.activeRoute}

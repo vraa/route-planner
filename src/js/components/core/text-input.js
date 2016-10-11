@@ -31,11 +31,11 @@ class TextInput extends React.Component {
     }
 
     focus(input) {
-        if (input != null) {
-            input.focus();
-        }
         if (this.props.domElm) {
             this.props.domElm(input);
+        }
+        if (input != null) {
+            input.focus();
         }
     }
 
@@ -44,6 +44,7 @@ class TextInput extends React.Component {
         return (
             <div className={cx}>
                 <input type="text"
+                       placeholder={this.props.placeholder}
                        defaultValue={this.props.value}
                        ref={this.focus.bind(this)}
                        onBlur={this.handleBlur.bind(this)}
