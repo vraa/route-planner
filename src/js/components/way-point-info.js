@@ -5,8 +5,8 @@ class WayPointInfo extends React.Component {
     render() {
         return (
             <div className="way-point-info">
-                <span className="distance">{this.props.distance}</span>
-                <span className="duration">{this.props.duration}</span>
+                <span className="distance"><i className="icon-directions_run"/> {this.props.distance}</span>
+                <span className="duration"><i className="icon-clock"/> {this.props.duration}</span>
             </div>
         )
     }

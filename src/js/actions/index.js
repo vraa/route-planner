@@ -103,6 +103,19 @@ var Actions = {
         }
     },
 
+    setEditingWayPoint: (wayPointID) => {
+        return {
+            type: ActionTypes.SET_EDITING_WAY_POINT,
+            wayPointID
+        }
+    },
+
+    unsetEditingWayPoint: () => {
+        return {
+            type: ActionTypes.UNSET_EDITING_WAY_POINT
+        }
+    },
+
     API: {
         fetchRoutes: () => {
             return {

@@ -11,6 +11,14 @@ class EditableText extends React.Component {
         }
     }
 
+    componentDidMount() {
+        if (this.props.edit) {
+            this.setState({
+                editing: true
+            });
+        }
+    }
+
     edit() {
         this.setState({
             editing: true
@@ -27,6 +35,9 @@ class EditableText extends React.Component {
     }
 
     cancel() {
+        if (this.props.onSave) {
+            this.props.onSave(this.props.value);
+        }
         this.setState({
             editing: false
         });

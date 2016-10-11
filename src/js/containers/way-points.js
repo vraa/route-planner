@@ -24,6 +24,7 @@ const getWayPointsToShow = (state) => {
 
 const mapStateToProps = (state, ownProps) => {
     return {
+        editingWayPoint: state.editingWayPoint,
         wayPoints: getWayPointsToShow(state),
         mapService: ownProps.mapService,
         route: ownProps.route

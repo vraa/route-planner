@@ -59,6 +59,14 @@ const app = (state = DEFAULTS, action) => {
                     return wp;
                 })
             });
+        case ActionTypes.SET_EDITING_WAY_POINT:
+            return Object.assign({}, state, {
+                editingWayPoint: action.wayPointID
+            });
+        case ActionTypes.UNSET_EDITING_WAY_POINT:
+            return Object.assign({}, state, {
+                editingWayPoint: undefined
+            });
         default:
             return state;
     }

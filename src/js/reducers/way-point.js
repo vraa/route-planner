@@ -1,6 +1,6 @@
 var ActionTypes = require('../actions/types');
 var util = require('../util');
-let DEFAULT_NAME = 'Start typing a place name';
+let DEFAULT_NAME = '';
 
 const wayPoint = (state = {}, action) => {
     switch (action.type) {

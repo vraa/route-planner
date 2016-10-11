@@ -15,11 +15,13 @@ function* addWayPoint(action) {
     yield put(Actions.addWayPoint(action.id));
     let newWayPoint = yield select(AppSelectors.recentlyAddedWayPoint);
     yield put(Actions.addWayPointToRoute(action.id, newWayPoint.id));
+    yield put(Actions.setEditingWayPoint(newWayPoint.id));
 }
 
 function* removeWayPoint(action) {
     yield put(Actions.removeWayPointFromRoute(action.id));
     yield put(Actions.removeWayPoint(action.id));
+    yield* fetchDirections(action);
 }
 
 function* fetchDirections(action) {
@@ -33,6 +35,10 @@ function* fetchDirections(action) {
 
 function* changeWayPointName(action) {
     yield put(Actions.changeWayPointName(action.wayPointID, action.newName));
+    yield put(Actions.unsetEditingWayPoint());
+    if (action.newName.trim() === '') {
+        yield* removeWayPoint(Actions.removeWayPointRequested(action.wayPointID));
+    }
     yield* fetchDirections(action);
 }
 

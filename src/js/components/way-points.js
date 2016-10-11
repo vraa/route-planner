@@ -24,7 +24,6 @@ class WayPoints extends React.Component {
     }
 
     renderWayPoints() {
-
         return (
             <ul className='way-points'>
                 {
@@ -34,6 +33,7 @@ class WayPoints extends React.Component {
                             <li key={wp.id}>
                                 <i className={icon + ' way-point-icon'}/>
                                 <WayPoint
+                                    edit = {wp.id === this.props.editingWayPoint}
                                     mapService={this.props.mapService}
                                     wayPoint={wp}
                                     onAdd={this.props.onAdd.bind(this, wp.id)}

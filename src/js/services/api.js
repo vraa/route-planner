@@ -1,12 +1,14 @@
+let mapService;
 let directionsService;
 
 var API = {
 
-    initMapService: (mapService) => {
+    initMapService: (google) => {
+        mapService = google;
         directionsService = new mapService.maps.DirectionsService();
     },
 
-    fetchRoutes: (wayPoints, google) => {
+    fetchRoutes: (wayPoints) => {
 
         return new Promise((resolve, reject)=> {
             if (wayPoints.length < 2) {
@@ -15,7 +17,7 @@ var API = {
                 let request = {
                     origin: wayPoints[0].name,
                     destination: wayPoints[wayPoints.length - 1].name,
-                    travelMode: google.maps.TravelMode.DRIVING
+                    travelMode: mapService.maps.TravelMode.DRIVING
                 };
                 let wayPointsInBetween = [];
                 let noOfWayPointsInBetween = wayPoints.length - 2;

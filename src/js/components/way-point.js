@@ -22,6 +22,7 @@ class WayPoint extends React.Component {
         return (
             <div className="way-point-name">
                 <EditableText
+                    edit={this.props.edit}
                     placeholder="Start typing a place name"
                     domElm={this.cacheWayPointDomElm.bind(this)}
                     onSave={this.handleWayPointNameChange.bind(this)}
