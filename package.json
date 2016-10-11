@@ -1,37 +1,39 @@
 {
   "name": "routeplanner",
-  "version": "1.0.0",
-  "description": "Google Maps Route Planner",
+  "version": "2.0.0",
+  "description": "Route Planner using Google Maps",
   "main": "index.js",
-  "dependencies": {
-    "backbone": "*",
-    "classnames": "^2.2.1",
-    "domready": "*",
-    "google-maps": "*",
-    "jquery": "*",
-    "promise": "*",
-    "react": "*",
-    "react-backbone": "*",
-    "react-dom": "*",
-    "react-mixin-manager": "*",
-    "underscore": "*",
-    "vent": "*"
+  "author": "Veera",
+  "scripts": {
+    "start": "webpack-dev-server --inline --colors",
+    "build": "webpack --optimize-minimize"
   },
   "devDependencies": {
-    "grunt": "*",
-    "browserify": "*",
-    "grunt-browserify": "*",
-    "grunt-cli": "*",
-    "grunt-contrib-sass": "*",
-    "grunt-contrib-cssmin": "*",
-    "grunt-contrib-watch": "*",
-    "grunt-contrib-connect": "*",
-    "reactify": "*"
+    "babel-core": "*",
+    "babel-loader": "*",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "css-loader": "*",
+    "file-loader": "^0.9.0",
+    "node-sass": "*",
+    "sass-loader": "*",
+    "style-loader": "*",
+    "url-loader": "^0.5.7",
+    "webpack": "*",
+    "webpack-dev-server": "*"
   },
-  "scripts": {
-    "start" : "grunt connect",
-    "build": "grunt browserify:publish",
-    "dev": "watchify --ignore-watch=node_modules/** -v -d -t reactify src/js/index.js -o resources/js/routeplanner.js"
-  },
-  "author": "Veera"
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "domready": "^1.0.8",
+    "google-maps": "^3.2.1",
+    "immutable": "https://registry.npmjs.org/immutable/-/immutable-3.8.1.tgz",
+    "lodash": "https://registry.npmjs.org/lodash/-/lodash-4.16.2.tgz",
+    "react": "https://registry.npmjs.org/react/-/react-15.3.2.tgz",
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.5",
+    "redux": "^3.6.0",
+    "redux-saga": "^0.12.0"
+  }
 }

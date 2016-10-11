@@ -1,22 +1,16 @@
 var React = require('react');
 
-var WayPointInfo = React.createClass({
-    render: function () {
-        var wayPoint = this.props.wayPoint,
-            distance = wayPoint.get('distance'),
-            distanceText = (distance && distance.text) || '',
-            duration = wayPoint.get('duration'),
-            durationText = (duration && duration.text) || '';
+class WayPointInfo extends React.Component {
 
+    render() {
         return (
-            <div className='way-point-info'>
-                <p>
-                    <span className='distance'>{distanceText}</span>
-                    <span className='duration'>{durationText}</span>
-                </p>
+            <div className="way-point-info">
+                <span className="distance"><i className="icon-directions_run"/> {this.props.distance}</span>
+                <span className="duration"><i className="icon-clock"/> {this.props.duration}</span>
             </div>
-            );
+        )
     }
-});
+
+}
 
 module.exports = WayPointInfo;
