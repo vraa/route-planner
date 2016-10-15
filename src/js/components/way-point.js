@@ -10,12 +10,17 @@ class WayPoint extends React.Component {
     cacheWayPointDomElm(elm) {
         let google = this.props.mapService;
         if (elm) {
-            new google.maps.places.Autocomplete(elm);
+            this.autoComplete = new google.maps.places.Autocomplete(elm);
+            this.autoComplete.addListener('place_changed', this.autoCompletePlaceChange.bind(this));
         }
     }
 
     handleWayPointNameChange(newName) {
         this.props.onNameChange(this.props.wayPoint.id, newName);
+    }
+
+    autoCompletePlaceChange() {
+        this.handleWayPointNameChange(this.autoComplete.getPlace().formatted_address);
     }
 
     renderWayPointName() {
