@@ -10,8 +10,7 @@ body {
 }
 
 .app {
-  max-width: 500px;
-  margin: 2* $pad auto 0 auto;
+
 }
 
 .app-name {
@@ -65,7 +64,8 @@ body {
 }
 
 .route {
-  min-height: 800px;
+  min-height: 400px;
+  max-width: 400px;
   background-color: #ffffff;
 }
 
@@ -233,4 +233,13 @@ ul.way-points {
       display: inline-block;
     }
   }
+}
+
+.map {
+  position: absolute;
+  top: 0;
+  left: 400px;
+  width: 500px;
+  height: 500px;
+  background-color: #CF000F;
 }

@@ -30,6 +30,9 @@ function* fetchDirections(action) {
     let data = yield call(APIService.fetchRoutes, activeWayPoints, action.mapService);
     if (data && data.status === 'OK') {
         yield put(Actions.API.fetchRoutesSucceeded(activeRouteID, data.response.routes));
+        yield put(Actions.refreshMap(data.response));
+    } else {
+        console.log('fetch direction failed', data && data.status);
     }
 }
 

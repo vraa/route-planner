@@ -116,6 +116,13 @@ var Actions = {
         }
     },
 
+    refreshMap: (data) => {
+        return {
+            type: ActionTypes.REFRESH_MAP,
+            data
+        }
+    },
+
     API: {
         fetchRoutes: () => {
             return {

@@ -1,9 +1,14 @@
-var React = require('react');
-var Link = require('./core/link');
-var Route = require('./route');
+let React = require('react');
+let Link = require('./core/link');
+let Route = require('./route');
+let Map = require('./map');
 
 
 class Routes extends React.Component {
+
+    shouldComponentUpdate(nextProps) {
+        return (this.props.routes == nextProps.routes);
+    }
 
     handleAddRoute(e) {
         e.preventDefault();
@@ -38,6 +43,7 @@ class Routes extends React.Component {
     }
 
     render() {
+
         return (
             <div className='routes'>
                 <Route
@@ -45,6 +51,7 @@ class Routes extends React.Component {
                     route={this.props.activeRoute}
                     onNameChange={this.handleChangeRouteName.bind(this)}
                 />
+                <Map mapData={this.props.mapData} mapService={this.props.mapService}/>
             </div>
         );
     }

@@ -9,7 +9,6 @@ var API = {
     },
 
     fetchRoutes: (wayPoints) => {
-
         return new Promise((resolve, reject)=> {
             if (wayPoints.length < 2) {
                 resolve();
@@ -26,9 +25,8 @@ var API = {
                     for (let i = 1; i <= noOfWayPointsInBetween; i++) {
                         wayPointsInBetween.push({location: wayPoints[i].name});
                     }
+                    request.waypoints = wayPointsInBetween;
                 }
-
-                request.waypoints = wayPointsInBetween;
 
                 directionsService.route(request, (response, status) => {
                     if (status === 'OK') {

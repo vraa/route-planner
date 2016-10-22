@@ -13,7 +13,8 @@ const mapStateToProps = (state, ownProps) => {
     return {
         routes: state.routes,
         activeRoute: getActiveRoute(state),
-        mapService: ownProps.mapService
+        mapService: ownProps.mapService,
+        mapData: state.mapData
     }
 };
 

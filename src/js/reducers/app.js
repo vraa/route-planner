@@ -67,6 +67,10 @@ const app = (state = DEFAULTS, action) => {
             return Object.assign({}, state, {
                 editingWayPoint: undefined
             });
+        case ActionTypes.REFRESH_MAP:
+            return Object.assign({}, state, {
+                mapData: action.data
+            });
         default:
             return state;
     }
