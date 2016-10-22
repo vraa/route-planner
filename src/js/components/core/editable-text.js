@@ -38,6 +38,10 @@ class EditableText extends React.Component {
         if (this.props.onSave) {
             this.props.onSave(this.props.value);
         }
+        this.cancelEdit();
+    }
+
+    cancelEdit() {
         this.setState({
             editing: false
         });
@@ -55,6 +59,7 @@ class EditableText extends React.Component {
                 value={this.props.value}
                 onSave={this.save.bind(this)}
                 onCancel={this.cancel.bind(this)}
+                onCancelEdit={this.cancelEdit.bind(this)}
             />
         } else {
             textInputElm = <p className={cxLabel} onClick={this.edit.bind(this)}>{this.props.value}</p>

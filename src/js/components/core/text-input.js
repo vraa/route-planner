@@ -26,8 +26,8 @@ class TextInput extends React.Component {
         }
     }
 
-    handleBlur(e) {
-        this.props.onSave(e.target.value);
+    handleBlur() {
+        this.props.onCancelEdit();
     }
 
     focus(input) {
