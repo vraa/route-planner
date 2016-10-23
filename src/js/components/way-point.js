@@ -7,6 +7,10 @@ class WayPoint extends React.Component {
     componentDidMount() {
     }
 
+    componentWillUnmount() {
+        this.autoComplete = null;
+    }
+
     cacheWayPointDomElm(elm) {
         let google = this.props.mapService;
         if (elm) {
