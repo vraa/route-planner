@@ -8,6 +8,16 @@
   font-weight: 300;
   overflow: hidden;
 
+  [class^="icon-"], [class*=" icon-"] {
+    position: absolute;
+    font-size: 5rem;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: .2;
+    color: #eeeeee;
+  }
+
   canvas {
     position: absolute;
     height: 100%;

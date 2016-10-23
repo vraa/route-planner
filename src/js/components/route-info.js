@@ -86,6 +86,7 @@ class RouteInfo extends React.Component {
     renderDistance(distance = 0) {
         return (
             <div className="distance">
+                <i className="icon-directions_car"/>
                 <p className="value">{distance > 0 ? (toMiles(distance).toFixed(2)) : 0}</p>
                 <p className="unit">{distance <= 1 ? 'mile' : 'miles'}</p>
             </div>
@@ -142,6 +143,7 @@ class RouteInfo extends React.Component {
 
         return (
             <div className="duration">
+                <i className="icon-clock"/>
                 <ul>
                     {elm}
                     {dayElm}
