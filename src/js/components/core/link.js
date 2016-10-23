@@ -9,7 +9,7 @@ class Link extends React.Component {
 
     render() {
         return (
-            <a href="#" onClick={this.handleClick.bind(this)}>{this.props.children}</a>
+            <a className={this.props.className} href="#" onClick={this.handleClick.bind(this)}>{this.props.children}</a>
         )
     }
 }

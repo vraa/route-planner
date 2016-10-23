@@ -73,8 +73,6 @@ body {
   margin-bottom: $pad;
 }
 
-
-
 $textColor: #333333;
 
 ul.way-points {
@@ -133,6 +131,13 @@ ul.way-points {
 
   &.empty:before {
     content: none;
+  }
+
+  &.max-way-points {
+    .add-place,
+    .insert-way-point {
+      display: none;
+    }
   }
 }
 

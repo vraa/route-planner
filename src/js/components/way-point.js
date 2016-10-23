@@ -45,8 +45,8 @@ class WayPoint extends React.Component {
             <div className="way-point">
                 {this.renderWayPointName()}
                 <div className="cta">
-                    <Link onClick={this.props.onAdd}><i className="icon-plus"></i></Link>
-                    <Link onClick={this.props.onRemove}><i className="icon-minus"></i></Link>
+                    <Link className='insert-way-point' onClick={this.props.onAdd}><i className="icon-plus"></i></Link>
+                    <Link className='remove-way-point' onClick={this.props.onRemove}><i className="icon-minus"></i></Link>
                 </div>
             </div>
         )
