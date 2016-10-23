@@ -4,7 +4,6 @@ let HOUR = 3600;
 let DAY = 86400;
 
 let toMiles = (meters) => meters * 0.000621371;
-let COLORS = ['#1abc9c', '#f1c40f', '#2ecc71', '#e67e22', '#3498db', '#e74c3c', '#9b59b6', '#34495e', '#16a085', '#f39c12', '#27ae60', '#d35400'];
 let ALT_COLORS = ['#E01931', '#FEC606'];
 
 class RouteInfo extends React.Component {
@@ -58,7 +57,7 @@ class RouteInfo extends React.Component {
     drawDistanceSegments(ctx, env, totalDistance = 0, segments = []) {
 
         let startX = 0;
-        let barH = 5;
+        let barH = 10;
         let startY = env.cH - barH;
         let barW = env.cW;
 
