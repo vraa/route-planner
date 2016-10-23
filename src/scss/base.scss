@@ -180,3 +180,22 @@ ul.way-points {
 .map {
   display: none;
 }
+
+@media (min-width: 800px) {
+  .map {
+    position: absolute;
+    display: block;
+    width: 100vh;
+    height: 100vh;
+    left: 400px;
+    top: 0px;
+  }
+
+  header {
+    max-width: $widgetWidth;
+  }
+
+  .route {
+    width: $widgetWidth;
+  }
+}
