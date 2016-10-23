@@ -45,6 +45,7 @@ class WayPoints extends React.Component {
                         )
                     })
                 }
+                <li className="add-place"><i className="icon-flag"/> <Link onClick={this.props.onAdd.bind(this, 0)}>Add a place</Link></li>
             </ul>
         )
     }

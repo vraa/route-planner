@@ -113,6 +113,11 @@ ul.way-points {
     &:last-child .way-point-icon {
       color: #CF000F;
     }
+
+    &.add-place {
+      background-color: #ffffff;
+      margin-top: 4 * $pad;
+    }
   }
 
   &:before {
