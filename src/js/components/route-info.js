@@ -4,8 +4,8 @@ let HOUR = 3600;
 let DAY = 86400;
 
 let toMiles = (meters) => meters * 0.000621371;
-let degToRad = (degrees) => (Math.PI / 180) * degrees;
-let COLORS = ['#f00', '#0f0', '#00f', '#f00', '#0f0', '#00f', '#f00', '#0f0', '#00f', '#f00', '#0f0', '#00f'];
+let COLORS = ['#1abc9c', '#f1c40f', '#2ecc71', '#e67e22', '#3498db', '#e74c3c', '#9b59b6', '#34495e', '#16a085', '#f39c12', '#27ae60', '#d35400'];
+let ALT_COLORS = ['#E01931', '#FEC606'];
 
 class RouteInfo extends React.Component {
 
@@ -55,7 +55,6 @@ class RouteInfo extends React.Component {
         };
     }
 
-
     drawDistanceSegments(ctx, env, totalDistance = 0, segments = []) {
 
         let startX = 0;
@@ -64,38 +63,32 @@ class RouteInfo extends React.Component {
         let barW = env.cW;
 
         ctx.save();
-        if (segments.length === 0) {
+        if (segments.length <= 1) {
+            ctx.fillStyle = ALT_COLORS[0];
             ctx.fillRect(startX, startY, barW, barH);
         } else {
+            let i;
+            ctx.clearRect(0, startY, barW, barH);
 
-            for (let i = 0; i < segments.length - 1; i++) {
+            for (i = 0; i < segments.length - 1; i++) {
                 let segX = startX;
                 let segY = startY;
                 let segW = Math.floor((barW * segments[i]) / totalDistance);
-                ctx.fillStyle = COLORS[i];
+                ctx.fillStyle = ALT_COLORS[i % 2 === 0 ? 0 : 1];
                 ctx.fillRect(segX, segY, segW, barH);
                 startX += segW;
             }
-            ctx.fillStyle = COLORS[segments.length];
+            ctx.fillStyle = ALT_COLORS[i % 2 === 0 ? 0 : 1];
             ctx.fillRect(startX, startY, (barW - startX), barH);
 
         }
     }
 
-    drawArc(ctx, cX, cY, r, sA, eA, color) {
-        ctx.beginPath();
-        ctx.arc(cX, cY, r, sA, eA, false);
-        ctx.strokeStyle = color
-        ctx.stroke();
-        ctx.closePath();
-    }
-
-
     renderDistance(distance = 0) {
         return (
             <div className="distance">
                 <p className="value">{distance > 0 ? (toMiles(distance).toFixed(2)) : 0}</p>
-                <p className="unit">miles</p>
+                <p className="unit">{distance <= 1 ? 'mile' : 'miles'}</p>
             </div>
         )
     }
@@ -114,7 +107,7 @@ class RouteInfo extends React.Component {
         if (duration === 0) {
             elm = (<li className='hours'>
                 <p className='value'>{0}</p>
-                <p className='unit'>hours</p>
+                <p className='unit'>hour</p>
             </li>);
         } else {
             // map duration to days / hours / minutes
@@ -123,7 +116,7 @@ class RouteInfo extends React.Component {
                 duration = duration % DAY;
                 dayElm = (<li className='days'>
                     <p className='value'>{time.days}</p>
-                    <p className='unit'>days</p>
+                    <p className='unit'>{time.days <= 1 ? 'day' : 'days'}</p>
                 </li>);
             }
 
@@ -132,7 +125,7 @@ class RouteInfo extends React.Component {
                 duration = duration % HOUR;
                 hourElm = (<li className='hours'>
                     <p className='value'>{time.hours}</p>
-                    <p className='unit'>hours</p>
+                    <p className='unit'>{time.hours <= 1 ? 'hour' : 'hours'}</p>
                 </li>);
             }
 
@@ -141,7 +134,7 @@ class RouteInfo extends React.Component {
                 duration = duration % MINUTE;
                 minuteElm = (<li className='minutes'>
                     <p className='value'>{time.minutes}</p>
-                    <p className='unit'>minutes</p>
+                    <p className='unit'>{time.minutes <= 0 ? 'minute' : 'minutes'}</p>
                 </li>);
             }
 
@@ -183,12 +176,13 @@ class RouteInfo extends React.Component {
     }
 
     render() {
-
+        let data = this.extractDisplayData();
         return (
             <div className="route-info">
                 <canvas ref={this.cacheCanvasElm.bind(this)}>
-
                 </canvas>
+                {this.renderDistance(data.totalDistance)}
+                {this.renderDuration(data.totalDuration)}
             </div>
         )
     }

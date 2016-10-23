@@ -3,7 +3,7 @@
 .route-info {
   height: 100px;
   width: 100%;
-  background-color: #fafafa;
+  background-color: #ffffff;
   position: relative;
   font-weight: 300;
   overflow: hidden;
@@ -14,5 +14,45 @@
     width: 100%;
     top: 0;
     left: 0;
+  }
+
+  .value {
+    font-size: 2.2rem;
+    font-weight: 300;
+  }
+
+  .unit {
+    font-size: .9rem;
+    text-transform: lowercase;
+    letter-spacing: 1pt;
+  }
+
+  .distance {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #249991;
+  }
+
+  .duration {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #953163;
+
+    li {
+      display: inline-block;
+      margin-right: 2* $pad;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
 }
