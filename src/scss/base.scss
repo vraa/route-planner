@@ -51,6 +51,11 @@ body {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    transition: margin-left .2s ease-in-out;
+
+    &:hover {
+      margin-left: 2 * $pad;
+    }
   }
 
 }
