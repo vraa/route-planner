@@ -24,6 +24,17 @@ class App extends React.Component {
         return (
             <Provider store={store}>
                 <div className="route-planner">
+                    <header>
+                        <h1>Route Planner</h1>
+                        <ul>
+                            <li>
+                                <a href="https://github.com/vraa/route-planner">Source</a>
+                            </li>
+                            <li>
+                                Built by  <a href="http://veerasundar.com">Veera</a>
+                            </li>
+                        </ul>
+                    </header>
                     <Routes mapService={this.props.mapService}/>
                 </div>
             </Provider>
