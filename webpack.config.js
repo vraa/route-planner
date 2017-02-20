@@ -6,27 +6,33 @@ module.exports = {
         publicPath: '/resources/js'
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['es2015', 'react']
-                }
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['es2015', 'react']
+                        }
+                    }
+                ]
             },
             {
                 test: /\.scss$/,
-                loaders: ['style', 'css', 'sass']
+                use: ['style-loader', 'css-loader', 'sass-loader']
             },
             {
                 test: /\.woff(2)?(\?[a-z0-9]+)?$/,
-                loader: "url-loader?limit=10000&mimetype=application/font-woff"
+                use: {
+                    loader: "url-loader?limit=10000&mimetype=application/font-woff"
+                }
             }, {
                 test: /\.(ttf|eot|svg)(\?[a-z0-9]+)?$/,
-                loader: "file-loader"
+                use: ["file-loader"]
             }
         ]
     },
-    devtool: '#source-map'
+    devtool: 'source-map'
 };
