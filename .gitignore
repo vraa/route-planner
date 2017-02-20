@@ -1,5 +1,5 @@
 node_modules/**
-resources/js/*.js
+resources/js/*.*
 resources/css/*.css
 resources/css/*.css.map
 *.iml
