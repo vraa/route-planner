@@ -6,7 +6,7 @@
   "author": "Veera",
   "scripts": {
     "start": "webpack-dev-server --inline --colors",
-    "build": "webpack --optimize-minimize"
+    "build": "webpack --config ./webpack.prod.js --optimize-minimize "
   },
   "devDependencies": {
     "babel-core": "6.23.1",
