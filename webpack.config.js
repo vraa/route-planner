@@ -4,7 +4,7 @@ module.exports = {
     entry: ['babel-polyfill', './src/js/main.js'],
     output: {
         path: path.join(__dirname, 'resources', 'js'),
-        filename: 'bundle.js',
+        filename: 'bundle.[hash].js',
         publicPath: '/resources/js'
     },
     module: {
@@ -33,6 +33,11 @@ module.exports = {
             }, {
                 test: /\.(ttf|eot|svg)(\?[a-z0-9]+)?$/,
                 use: ["file-loader"]
+            }, {
+                test: /\.html$/,
+                use: {
+                    loader: 'html-loader'
+                }
             }
         ]
     },
