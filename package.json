@@ -8,7 +8,7 @@
     "start": "webpack-dev-server --inline --colors --content-base resources/",
     "dev": "npm run start",
     "build": "webpack --config ./webpack.config.js",
-    "build-prod": "webpack --config ./webpack.prod.js --optimize-minimize ",
+    "build-prod": "rm -rf ./resources && webpack --config ./webpack.prod.js --optimize-minimize ",
     "test": "karma start"
   },
   "devDependencies": {
