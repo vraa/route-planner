@@ -5,8 +5,11 @@
   "main": "index.js",
   "author": "Veera",
   "scripts": {
-    "start": "webpack-dev-server --inline --colors",
-    "build": "webpack --config ./webpack.prod.js --optimize-minimize "
+    "start": "webpack-dev-server --inline --colors --content-base resources/",
+    "dev": "npm run start",
+    "build": "webpack --config ./webpack.config.js",
+    "build-prod": "webpack --config ./webpack.prod.js --optimize-minimize ",
+    "test": "karma start"
   },
   "devDependencies": {
     "babel-core": "6.23.1",
