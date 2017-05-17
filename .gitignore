@@ -1,4 +1,5 @@
 node_modules/**
+resources/*.html
 resources/js/*.*
 resources/css/*.css
 resources/css/*.css.map

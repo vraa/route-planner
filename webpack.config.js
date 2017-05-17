@@ -1,4 +1,6 @@
 let path = require('path');
+let HtmlWebpackPlugin = require('html-webpack-plugin');
+let HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 
 module.exports = {
     entry: ['babel-polyfill', './src/js/main.js'],
@@ -41,5 +43,13 @@ module.exports = {
             }
         ]
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'src/views/index.html',
+            filename: '../index.html',
+            alwaysWriteToDisk: true
+        }),
+        new HtmlWebpackHarddiskPlugin()
+    ],
     devtool: 'source-map'
 };
