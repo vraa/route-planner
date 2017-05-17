@@ -11,5 +11,6 @@ module.exports = Object.assign({}, baseConfig, {
             })
         ],
         baseConfig.plugins
-    )
+    ),
+    devtool: 'none'
 });
