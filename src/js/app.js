@@ -25,7 +25,7 @@ class App extends React.Component {
             <Provider store={store}>
                 <div className="route-planner">
                     <header>
-                        <h1>Route Planner</h1>
+                        <h1 className="app-name"><a href="https://veerasundar.com/route-planner/"> Route Planner</a></h1>
                         <ul>
                             <li>
                                 <a href="https://github.com/vraa/route-planner">Source</a>

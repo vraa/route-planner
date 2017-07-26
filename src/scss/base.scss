@@ -16,10 +16,15 @@ body {
 
 .app-name {
   font-weight: 300;
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-align: center;
   text-transform: uppercase;
   color: #999999;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHRpdGxlLz48cGF0aCBkPSJNMjU2IDBDMTY3LjYzNCAwIDk2IDcxLjYzNCA5NiAxNjBjMCAxNjAgMTYwIDM1MiAxNjAgMzUyczE2MC0xOTIgMTYwLTM1MkM0MTYgNzEuNjM0IDM0NC4zNjUgMCAyNTYgMHptMCAyNThjLTU0LjEyNCAwLTk4LTQzLjg3Ni05OC05OHM0My44NzYtOTggOTgtOTggOTggNDMuODc2IDk4IDk4LTQzLjg3NiA5OC05OCA5OHptLTYyLTk4YzAtMzQuMjQyIDI3Ljc1OC02MiA2Mi02MnM2MiAyNy43NTggNjIgNjJjMCAzNC4yNDItMjcuNzYgNjItNjIgNjJzLTYyLTI3Ljc1OC02Mi02MnoiLz48L3N2Zz4=');
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 20px;
+  padding-left: 25px;
 }
 
 .author {
