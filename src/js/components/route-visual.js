@@ -6,7 +6,13 @@ const COLORS = [
     '#880E4F',
     '#827717',
     '#B71C1C',
-    '#33691E'
+    '#33691E',
+    '#1A237E',
+    '#E65100',
+    '#3E2723',
+    '#01579B',
+    '#212121',
+    '#006064'
 ];
 
 class RouteVisual extends Component {
