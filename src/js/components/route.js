@@ -2,6 +2,7 @@ var React = require('react');
 var EditableText = require('./core/editable-text');
 var RouteInfo = require('./route-info');
 var WayPoints = require('../containers/way-points');
+import AppBar from "./app-bar";
 
 class Route extends React.Component {
 
@@ -29,6 +30,7 @@ class Route extends React.Component {
         var route = this.props.route;
         return (
             <div className={'route'}>
+                <AppBar/>
                 <RouteInfo route={route}/>
                 <WayPoints route={route} mapService={this.props.mapService}/>
             </div>
