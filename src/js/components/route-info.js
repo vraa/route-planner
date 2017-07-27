@@ -1,4 +1,6 @@
 let React = require('react');
+import RouteVisual from './route-visual';
+
 let MINUTE = 60;
 let HOUR = 3600;
 let DAY = 86400;
@@ -10,24 +12,6 @@ class RouteInfo extends React.Component {
 
     constructor(props) {
         super(props);
-    }
-
-    componentDidMount() {
-        let cvs = this.getCanvas();
-        this.drawDistanceSegments(cvs.ctx, cvs.env, undefined, undefined);
-    }
-
-    componentWillReceiveProps(nextProps) {
-        let data = this.extractDisplayData(nextProps);
-        let cvs = this.getCanvas();
-        this.drawDistanceSegments(cvs.ctx, cvs.env, data.totalDistance, data.distances);
-    }
-
-    cacheCanvasElm(canvasElm) {
-        if (canvasElm) {
-            this.canvasElm = canvasElm;
-            this.ctx = canvasElm.getContext('2d');
-        }
     }
 
     getCanvas() {
@@ -86,7 +70,7 @@ class RouteInfo extends React.Component {
     renderDistance(distance = 0) {
         return (
             <div className="distance">
-                <i className="icon-directions_car"/>
+                <h2><i className="icon-directions_car"/> Distance</h2>
                 <p className="value">{distance > 0 ? (toMiles(distance).toFixed(2)) : 0}</p>
                 <p className="unit">{distance <= 1 ? 'mile' : 'miles'}</p>
             </div>
@@ -143,7 +127,7 @@ class RouteInfo extends React.Component {
 
         return (
             <div className="duration">
-                <i className="icon-clock"/>
+                <h2><i className="icon-clock"/> Duration</h2>
                 <ul>
                     {elm}
                     {dayElm}
@@ -180,10 +164,11 @@ class RouteInfo extends React.Component {
         let data = this.extractDisplayData();
         return (
             <div className="route-info">
-                <canvas ref={this.cacheCanvasElm.bind(this)}>
-                </canvas>
-                {this.renderDistance(data.totalDistance)}
-                {this.renderDuration(data.totalDuration)}
+                <div className="textual">
+                    {this.renderDistance(data.totalDistance)}
+                    {this.renderDuration(data.totalDuration)}
+                </div>
+                <RouteVisual data={data}/>
             </div>
         )
     }

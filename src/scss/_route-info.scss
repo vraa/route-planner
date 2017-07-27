@@ -1,29 +1,30 @@
 @import "variables";
 
 .route-info {
-  height: 100px;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  height: 130px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px 0;
   background-color: #ffffff;
-  position: relative;
   font-weight: 300;
-  overflow: hidden;
 
-  [class^="icon-"], [class*=" icon-"] {
-    position: absolute;
-    font-size: 5rem;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    opacity: .2;
-    color: #eeeeee;
+  h2 {
+    font-size: .6rem;
+    text-transform: uppercase;
+    letter-spacing: 2pt;
+    margin-bottom: 10px;
   }
 
-  canvas {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
+  .route-visual {
+    text-align: center;
+  }
+
+  .textual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
   .value {
@@ -38,24 +39,13 @@
   }
 
   .distance {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 50%;
-    transform: translateY(-50%);
     text-align: center;
     color: #249991;
   }
 
   .duration {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    width: 50%;
-    transform: translateY(-50%);
     text-align: center;
     color: #953163;
-
     li {
       display: inline-block;
       margin-right: 2* $pad;
