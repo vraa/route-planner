@@ -1,6 +1,9 @@
 @import "reset";
 @import "icons";
 @import "variables";
+@import "app";
+@import "routes";
+@import "route";
 @import "header";
 @import "route-info";
 
@@ -74,21 +77,13 @@ body {
   }
 }
 
-.route {
-  min-height: 100vh;
-  background-color: #ffffff;
-}
-
-.route .route-name {
-  margin-bottom: $pad;
-}
-
 $textColor: #333333;
 
 ul.way-points {
   margin: 2 * $pad;
   position: relative;
-
+  max-height: 300px;
+  overflow: auto;
   a {
     text-decoration: none;
     border-bottom: 1px solid #19B5FE;
@@ -187,25 +182,9 @@ ul.way-points {
   }
 }
 
-.map {
-  display: none;
-}
-
-@media (min-width: 800px) {
-  .map {
-    position: absolute;
-    display: block;
-    width: 100vh;
-    height: 100vh;
-    left: 400px;
-    top: 0px;
-  }
-
-  header {
-    max-width: $widgetWidth;
-  }
-
-  .route {
-    width: $widgetWidth;
+@media screen and (min-width: 600px) {
+  ul.way-points {
+    max-height: 700px;
+    overflow: auto;
   }
 }

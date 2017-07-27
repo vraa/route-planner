@@ -36,13 +36,6 @@ class RouteVisual extends Component {
                     <path
                         d="M256 0C167.634 0 96 71.634 96 160c0 160 160 352 160 352s160-192 160-352C416 71.634 344.365 0 256 0zm0 258c-54.124 0-98-43.876-98-98s43.876-98 98-98 98 43.876 98 98-43.876 98-98 98zm-62-98c0-34.242 27.758-62 62-62s62 27.758 62 62c0 34.242-27.76 62-62 62s-62-27.758-62-62z"/>
                 </symbol>
-                <use
-                    xlinkHref="#marker"
-                    x={markX}
-                    y={0}
-                    height={height / 2}
-                    fill={'blue'}
-                />
                 {
                     mappedSegments.map((leg, idx) => {
                         let markerElm = idx === 0 ? null : <use
@@ -59,13 +52,6 @@ class RouteVisual extends Component {
                         return markerElm;
                     })
                 }
-                <use
-                    xlinkHref="#marker"
-                    x={width / 2}
-                    y={0}
-                    height={height / 2}
-                    fill={'blue'}
-                />
                 {
                     mappedSegments.map((leg, idx) => {
                         let legElm = <rect
@@ -73,7 +59,7 @@ class RouteVisual extends Component {
                             x={legX}
                             y={height / 2}
                             width={legX + leg}
-                            height={height / 2}
+                            height={5}
                             fill={COLORS[idx]}
                         />;
                         legX = legX + leg;
