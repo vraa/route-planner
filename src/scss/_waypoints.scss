@@ -1,0 +1,67 @@
+@import "variables";
+
+ul.way-points {
+  margin: 2 * $pad;
+  position: relative;
+  max-height: 300px;
+  overflow: auto;
+  a {
+    text-decoration: none;
+    border-bottom: 1px solid #19B5FE;
+    &:link, &:hover, &:visited, &:active {
+      color: $textColor;
+    }
+  }
+
+  &.empty a {
+    margin-left: 15px;
+  }
+
+  li {
+    margin-bottom: 2 * $pad;
+    position: relative;
+    z-index: 10;
+
+    .way-point-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: #19B5FE;
+      z-index: 10;
+    }
+
+    &:first-child .way-point-icon {
+      color: #2ECC71;
+    }
+
+    &:last-child .way-point-icon {
+      color: #CF000F;
+    }
+
+    &.add-place {
+      margin-top: 4 * $pad;
+    }
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 8px;
+    height: 100%;
+    width: 1px;
+    border-left: 1px dashed #ddd;
+    z-index: 5;
+  }
+
+  &.empty:before {
+    content: none;
+  }
+
+  &.max-way-points {
+    .add-place,
+    .insert-way-point {
+      display: none;
+    }
+  }
+}

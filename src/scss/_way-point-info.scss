@@ -1,0 +1,12 @@
+@import "variables";
+
+.way-point-info {
+  margin-top: 2 * $pad;
+  margin-left: 4 * $pad;
+  font-size: .8rem;
+  color: #6d6d6d;
+
+  .distance {
+    margin-right: 2 * $pad;
+  }
+}
