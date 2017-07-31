@@ -6,7 +6,25 @@
   font-size: .8rem;
   color: #6d6d6d;
 
+  .distance,
+  .duration {
+    padding: 2px 5px;
+    color: #fff;
+    border:1px solid;
+    border-radius: 3px;
+    letter-spacing: 1px;
+  }
+
   .distance {
-    margin-right: 2 * $pad;
+    background-color: #F8BBD0;
+    color: #880E4F;
+    border-color: #F48FB1;
+  }
+
+  .duration {
+    margin-left: 2 * $pad;
+    background-color: #E1BEE7;
+    color: #4A148C;
+    border-color: #CE93D8;
   }
 }

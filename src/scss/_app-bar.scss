@@ -3,7 +3,6 @@
 .app-bar {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-bottom: 1px solid #19B5FE;
   padding: 10px;
 }
 
@@ -27,10 +26,10 @@
 
 .app-bar .author-details {
   font-size: .8rem;
-  color: #9a9a9a;
+  color: #6d6d6d;
   text-align: right;
 }
 
 .app-bar a {
-  color: #9a9a9a;
+  color: #4d4d4d;
 }
