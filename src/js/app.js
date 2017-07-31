@@ -30,18 +30,16 @@ class App extends React.Component {
 
     loadBackground() {
         let img = new Image();
+        let location = window.location;
         let randomBg = Math.floor(Math.random() * (TOTAL_BACKGROUND_IMAGES - 1 + 1)) + 1;
         img.onload = () => {
             this.applyBackground(img);
         };
-        img.src = `${window.location}/img/bg${randomBg}.jpg`;
+        img.src = `${location.protocol}//${location.hostname}${location.pathname}/img/bg${randomBg}.jpg`;
     }
 
     applyBackground(img) {
-
-        console.log('applying ', img);
         let elm = document.querySelector('.app');
-        console.log(elm);
         elm.style.backgroundImage = `url(${img.src})`;
     }
 
