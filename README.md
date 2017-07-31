@@ -16,5 +16,5 @@ The application has a web pack dev server, so as you make your changes in your c
 
 ## Screenshot
 
-[![Route Planner](http://veerasundar.com/route-planner/route-planner-screenshot.png)](http://veerasundar.com/route-planner)
+[![Route Planner](http://veerasundar.com/route-planner/route-planner-screenshot-new.PNG)](http://veerasundar.com/route-planner)
 
