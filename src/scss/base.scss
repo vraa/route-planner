@@ -1,6 +1,7 @@
 @import "reset";
 @import "icons";
 @import "variables";
+@import "text-input";
 @import "app";
 @import "app-bar";
 @import "routes";
@@ -118,7 +119,6 @@ ul.way-points {
     }
 
     &.add-place {
-      background-color: #ffffff;
       margin-top: 4 * $pad;
     }
   }
@@ -160,7 +160,6 @@ ul.way-points {
 .way-point {
   position: relative;
   padding-left: 30px;
-  background-color: #ffffff;
 
   .way-point-name {
     padding-right: 50px;
