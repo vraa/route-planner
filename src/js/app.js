@@ -9,6 +9,8 @@ let Routes = require('./containers/routes');
 let rootSagas = require('./sagas');
 let APIService = require('./services/api');
 
+const TOTAL_BACKGROUND_IMAGES = 12;
+
 const sagaMiddleware = createSagaMiddleware();
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(appReducer, composeEnhancers(applyMiddleware(sagaMiddleware)));
@@ -18,6 +20,29 @@ class App extends React.Component {
 
     componentWillMount() {
         APIService.initMapService(this.props.mapService);
+        this.loadBackground = this.loadBackground.bind(this);
+        this.applyBackground = this.applyBackground.bind(this);
+    }
+
+    componentDidMount() {
+        this.loadBackground();
+    }
+
+    loadBackground() {
+        let img = new Image();
+        let randomBg = Math.floor(Math.random() * (TOTAL_BACKGROUND_IMAGES - 1 + 1)) + 1;
+        img.onload = () => {
+            this.applyBackground(img);
+        };
+        img.src = `${window.location}/img/bg${randomBg}.jpg`;
+    }
+
+    applyBackground(img) {
+
+        console.log('applying ', img);
+        let elm = document.querySelector('.app');
+        console.log(elm);
+        elm.style.backgroundImage = `url(${img.src})`;
     }
 
     render() {

@@ -6,3 +6,4 @@ resources/css/*.css.map
 *.iml
 .sass-cache/**
 .idea
+bash.exe.stackdump

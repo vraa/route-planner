@@ -7,7 +7,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'resources', 'js'),
         filename: 'bundle.[hash].js',
-        publicPath: 'resources/js'
+        publicPath: 'resources'
     },
     module: {
         rules: [
