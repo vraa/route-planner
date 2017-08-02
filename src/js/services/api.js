@@ -1,7 +1,7 @@
 let mapService;
 let directionsService;
 
-var API = {
+let API = {
 
     initMapService: (google) => {
         mapService = google;

@@ -47,6 +47,7 @@ function* changeWayPointName(action) {
 
 function* rootSaga() {
     yield* [
+        takeEvery(ActionTypes.LOAD_MAP, fetchDirections),
         takeEvery(ActionTypes.ADD_ROUTE_REQUESTED, addRoute),
         takeEvery(ActionTypes.ADD_WAY_POINT_REQUESTED, addWayPoint),
         takeEvery(ActionTypes.REMOVE_WAY_POINT_REQUESTED, removeWayPoint),

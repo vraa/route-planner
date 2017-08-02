@@ -1,6 +1,8 @@
+import React from 'react';
 import createSagaMiddleware from "redux-saga";
+import createStorageMiddleware from "./middlewares/state-storage";
+import Actions from "./actions";
 
-let React = require('react');
 let {Provider} = require('react-redux');
 let {createStore, applyMiddleware, compose} = require('redux');
 let appReducer = require('./reducers/app');
@@ -10,10 +12,16 @@ let rootSagas = require('./sagas');
 let APIService = require('./services/api');
 
 const TOTAL_BACKGROUND_IMAGES = 12;
+const DB_NAME = 'appState';
 
 const sagaMiddleware = createSagaMiddleware();
+const storageMiddleware = createStorageMiddleware(DB_NAME);
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(appReducer, composeEnhancers(applyMiddleware(sagaMiddleware)));
+
+const store = createStore(
+    appReducer,
+    composeEnhancers(applyMiddleware(sagaMiddleware, storageMiddleware))
+);
 sagaMiddleware.run(rootSagas);
 
 class App extends React.Component {
@@ -26,6 +34,7 @@ class App extends React.Component {
 
     componentDidMount() {
         this.loadBackground();
+        store.dispatch(Actions.loadMap());
     }
 
     loadBackground() {

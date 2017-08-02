@@ -140,24 +140,27 @@ class RouteInfo extends React.Component {
 
     extractDisplayData(props) {
         let source = props || this.props;
-        let directions = source.route.directions;
-        let distances = [];
-        let totalDistance = 0, totalDuration = 0, direction, legs, leg;
-        if (directions) {
-            direction = directions[0];
-            legs = direction.legs;
-            for (let l = 0; l < legs.length; l++) {
-                let leg = legs[l];
-                distances.push(leg.distance.value);
-                totalDistance += leg.distance.value;
-                totalDuration += leg.duration.value;
+        if (source.route) {
+            let directions = source.route.directions;
+            let distances = [];
+            let totalDistance = 0, totalDuration = 0, direction, legs, leg;
+            if (directions) {
+                direction = directions[0];
+                legs = direction.legs;
+                for (let l = 0; l < legs.length; l++) {
+                    let leg = legs[l];
+                    distances.push(leg.distance.value);
+                    totalDistance += leg.distance.value;
+                    totalDuration += leg.duration.value;
+                }
             }
+            return {
+                distances,
+                totalDistance,
+                totalDuration
+            };
         }
-        return {
-            distances,
-            totalDistance,
-            totalDuration
-        };
+        return {};
     }
 
     render() {

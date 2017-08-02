@@ -3,9 +3,11 @@ var Actions = require('../actions');
 var Routes = require('../components/routes');
 
 const getActiveRoute = (state) => {
-    return state.routes.find((r) => {
-        return r.id === state.activeRouteID;
-    });
+    if (state && state.routes) {
+        return state.routes.find((r) => {
+            return r.id === state.activeRouteID;
+        });
+    }
 };
 
 const mapStateToProps = (state, ownProps) => {

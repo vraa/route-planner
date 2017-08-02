@@ -15,7 +15,7 @@ const wayPoints = (state = DEFAULTS, action) => {
             break;
         case ActionTypes.REMOVE_WAY_POINT:
             return state.filter((wp)=> {
-                return wp.id != action.id
+                return wp.id !== action.id
             });
         default:
             return state;

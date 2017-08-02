@@ -67,7 +67,7 @@ class WayPoints extends React.Component {
 
 
     render() {
-        var elm;
+        let elm;
         if (this.props.wayPoints.length > 0) {
             elm = this.renderWayPoints();
         } else {

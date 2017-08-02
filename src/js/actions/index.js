@@ -1,10 +1,13 @@
 var ActionTypes = require('./types');
 
+const saveState = true;
+
 var Actions = {
 
     addRoute: () => {
         return {
             type: ActionTypes.ADD_ROUTE,
+            saveState
         }
     },
 
@@ -17,7 +20,8 @@ var Actions = {
     removeRoute: (id) => {
         return {
             type: ActionTypes.REMOVE_ROUTE,
-            id
+            id,
+            saveState
         }
     },
 
@@ -75,7 +79,8 @@ var Actions = {
     removeWayPoint: (id) => {
         return {
             type: ActionTypes.REMOVE_WAY_POINT,
-            id
+            id,
+            saveState
         }
     },
 
@@ -90,7 +95,8 @@ var Actions = {
         return {
             type: ActionTypes.CHANGE_WAY_POINT_NAME,
             wayPointID,
-            newName
+            newName,
+            saveState
         }
     },
 
@@ -123,6 +129,12 @@ var Actions = {
         }
     },
 
+    loadMap: () => {
+        return {
+            type: ActionTypes.LOAD_MAP
+        }
+    },
+
     API: {
         fetchRoutes: () => {
             return {
@@ -134,7 +146,8 @@ var Actions = {
             return {
                 type: ActionTypes.API_FETCH_ROUTES_SUCCEEDED,
                 routeID,
-                routes
+                routes,
+                saveState
             }
         }
 
