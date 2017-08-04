@@ -122,6 +122,20 @@ var Actions = {
         }
     },
 
+    openWayPointDetails: (wayPointID) => {
+        return {
+            type: ActionTypes.OPEN_WAY_POINT_DETAILS,
+            wayPointID
+        }
+    },
+
+    closeWayPointDetails: (wayPointID) => {
+        return {
+            type: ActionTypes.CLOSE_WAY_POINT_DETAILS,
+            wayPointID
+        }
+    },
+
     refreshMap: (data) => {
         return {
             type: ActionTypes.REFRESH_MAP,

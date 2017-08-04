@@ -1,11 +1,10 @@
-var React = require('react');
+import React, {Component} from 'react';
+import WayPointDetails from "./way-point-details";
+
 var EditableText = require('./core/editable-text');
 var Link = require('./core/link');
 
-class WayPoint extends React.Component {
-
-    componentDidMount() {
-    }
+class WayPoint extends Component {
 
     componentWillUnmount() {
         this.autoComplete = null;
@@ -40,14 +39,25 @@ class WayPoint extends React.Component {
         )
     }
 
+    renderWayPointDetails() {
+        return <WayPointDetails onClose={this.props.onDetailsClose}/>
+    }
+
     render() {
+        let {wayPoint} = this.props;
         return (
             <div className="way-point">
                 {this.renderWayPointName()}
                 <div className="cta">
-                    <Link className='insert-way-point' onClick={this.props.onAdd}><i className="icon-plus"></i></Link>
-                    <Link className='remove-way-point' onClick={this.props.onRemove}><i className="icon-minus"></i></Link>
+                    <Link className="way-point-details" onClick={this.props.onDetailsOpen}>details</Link>
+                    <Link className='insert-way-point' onClick={this.props.onAdd}>
+                        <i className="icon-plus"/>
+                    </Link>
+                    <Link className='remove-way-point' onClick={this.props.onRemove}>
+                        <i className="icon-minus"/>
+                    </Link>
                 </div>
+                {wayPoint.detailsOpen? this.renderWayPointDetails() : null}
             </div>
         )
     }

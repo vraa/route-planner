@@ -53,6 +53,8 @@ const app = (state = savedState || DEFAULTS, action) => {
             return Object.assign({}, state, {
                 wayPoints: wayPoints(state.wayPoints, action)
             });
+        case ActionTypes.OPEN_WAY_POINT_DETAILS:
+        case ActionTypes.CLOSE_WAY_POINT_DETAILS:
         case ActionTypes.CHANGE_WAY_POINT_NAME:
             return Object.assign({}, state, {
                 wayPoints: state.wayPoints.map((wp) => {

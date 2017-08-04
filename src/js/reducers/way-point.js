@@ -13,6 +13,14 @@ const wayPoint = (state = {}, action) => {
             return Object.assign({}, state, {
                 name: (action.newName.trim() || DEFAULT_NAME)
             });
+        case ActionTypes.OPEN_WAY_POINT_DETAILS:
+            return Object.assign({}, state, {
+                detailsOpen: true
+            });
+        case ActionTypes.CLOSE_WAY_POINT_DETAILS:
+            return Object.assign({}, state, {
+                detailsOpen: false
+            });
         default:
             return state;
     }

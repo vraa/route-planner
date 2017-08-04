@@ -42,6 +42,8 @@ class WayPoints extends React.Component {
                                     edit={wp.id === this.props.editingWayPoint}
                                     mapService={this.props.mapService}
                                     wayPoint={wp}
+                                    onDetailsOpen={this.props.onDetailsOpen.bind(this, wp.id)}
+                                    onDetailsClose={this.props.onDetailsClose.bind(this, wp.id)}
                                     onAdd={this.props.onAdd.bind(this, wp.id)}
                                     onRemove={this.props.onRemove.bind(this, wp.id)}
                                     onNameChange={this.handleChangeWayPointName.bind(this)}

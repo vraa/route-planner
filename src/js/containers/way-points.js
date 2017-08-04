@@ -33,6 +33,12 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
+        onDetailsOpen: (id) => {
+            dispatch(Actions.openWayPointDetails(id));
+        },
+        onDetailsClose: (id) => {
+            dispatch(Actions.closeWayPointDetails(id));
+        },
         onAdd: (id) => {
             dispatch(Actions.addWayPointRequested(id));
         },
